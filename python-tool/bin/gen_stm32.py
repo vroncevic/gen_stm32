@@ -22,7 +22,7 @@ from os import getcwd
 try:
     from pathlib import Path
 
-    from stm_pro.stm32_setup import STM32Setup
+    from stm32_pro.stm32_setup import STM32Setup
     from ats_utilities.cfg_base import CfgBase
     from ats_utilities.console_io.error import error_message
     from ats_utilities.console_io.verbose import verbose_message
