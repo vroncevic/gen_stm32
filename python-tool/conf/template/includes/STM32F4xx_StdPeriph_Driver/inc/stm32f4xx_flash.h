@@ -2,8 +2,7 @@
 /*
  * stm32f4xx_flash.h
  * 
- * This file has extern declaration for common tables like Bitreverse,
- * reciprocal etc which are used across different functions.
+ * This file contains all the functions prototypes for FLASH firmware library.
  * 
  * Version V1.0.0
  * Target Processor Cortex-M4/Cortex-M3
