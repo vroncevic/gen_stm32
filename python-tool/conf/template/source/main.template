@@ -24,16 +24,17 @@
 void delay(uint32_t ms);
 
 int main() {
+    uint32_t counter;
+    GPIO_InitTypeDef ledGPIO;
+
     // On startup, all peripheral clocks are disabled.
     // Before using a GPIO pin, its peripheral clock must be enabled.
     RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
     // Initialize the GPIO Pins below.
-    GPIO_InitTypeDef ledGPIO;
     GPIO_StructInit(&ledGPIO);
     ledGPIO.GPIO_Mode = GPIO_Mode_OUT;
     ledGPIO.GPIO_Pin = GPIO_Pin_6;
     GPIO_Init(GPIOA, &ledGPIO);
-    uint32_t counter;
 
     do {
         counter = 0;
