@@ -1,5 +1,10 @@
 # STM32 project skeleton generator.
 
+gen_stm32 is toolset for generation STM32 project skeleton for
+development of embedded applications.
+
+Developed in python code: 100%.
+
 The README is used to introduce the modules and provide instructions on
 how to install the modules, any machine dependencies it may have and any
 other information that should be provided before the modules are installed.
@@ -19,6 +24,18 @@ cp -R ~/gen_stm32_scripts/log/   /root/scripts/gen_stm32/ver.1.0/
 This module requires these other modules and libraries:
 
 * ats_utilities https://vroncevic.github.io/ats_utilities
+
+### GENERATION FLOW OF STM32 PROJECT SETUP
+
+Base flow of generation process:
+
+![alt tag](https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/python-tool-docs/gen_stm32_flow.png)
+
+### TOOL STRUCTURE
+
+gen_stm32 is based on Template mechanism:
+
+![alt tag](https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/python-tool-docs/gen_stm32.png)
 
 ### COPYRIGHT AND LICENCE
 
