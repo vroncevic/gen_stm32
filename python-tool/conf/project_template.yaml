@@ -1,0 +1,23 @@
+build:
+    build/sources.template
+    build/objects.template
+    build/Makefile.template
+    build/source/subdir.template
+    build/includes/STM32F4xx_StdPeriph_Driver/src/subdir.template
+
+scripts:
+    scripts/arm_cortex_m4_512.template
+
+includes:
+    CMSIS/
+    STM32F4xx/
+    STM32F4xx_StdPeriph_Driver/inc/
+    STM32F4xx_StdPeriph_Driver/src/
+
+source:
+    source/tinynew.template
+    source/system_stm32f4xx.template
+    source/syscall.template
+    source/startup_stm32f4xx.template
+    source/main.template
+

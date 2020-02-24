@@ -1,0 +1,23 @@
+build:
+    build/sources.mk
+    build/objects.mk
+    build/Makefile
+    build/source/subdir.mk
+    build/includes/STM32F4xx_StdPeriph_Driver/src/subdir.mk
+
+scripts:
+    scripts/arm_cortex_m4_512.ld
+
+includes:
+    includes/CMSIS/
+    includes/STM32F4xx/
+    includes/STM32F4xx_StdPeriph_Driver/inc/
+    includes/STM32F4xx_StdPeriph_Driver/src/
+
+source:
+    source/tinynew.cxx
+    source/system_stm32f4xx.c
+    source/syscall.c
+    source/startup_stm32f4xx.S
+    source/main.cxx
+
