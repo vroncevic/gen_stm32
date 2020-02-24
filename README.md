@@ -37,6 +37,120 @@ gen_stm32 is based on Template mechanism:
 
 ![alt tag](https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/python-tool-docs/gen_stm32.png)
 
+Generator structure:
+
+```
+.
+├── bin
+│   ├── gen_stm32.py
+│   ├── gen_stm32_run.py
+│   └── stm32_pro
+│       ├── __init__.py
+│       ├── read_template.py
+│       ├── stm32_setup.py
+│       └── write_template.py
+├── conf
+│   ├── gen_stm32.cfg
+│   ├── gen_stm32_util.cfg
+│   ├── project_setup.yaml
+│   ├── project_template.yaml
+│   └── template
+│       ├── build
+│       │   ├── includes
+│       │   │   └── STM32F4xx_StdPeriph_Driver
+│       │   │       └── src
+│       │   │           └── subdir.template
+│       │   ├── Makefile.template
+│       │   ├── objects.template
+│       │   ├── source
+│       │   │   └── subdir.template
+│       │   └── sources.template
+│       ├── includes
+│       │   ├── CMSIS
+│       │   │   ├── arm_common_tables.h
+│       │   │   ├── arm_math.h
+│       │   │   ├── core_cm0.h
+│       │   │   ├── core_cm3.h
+│       │   │   ├── core_cm4.h
+│       │   │   ├── core_cm4_simd.h
+│       │   │   ├── core_cmFunc.h
+│       │   │   └── core_cmInstr.h
+│       │   ├── STM32F4xx
+│       │   │   ├── stm32f4xx_conf.h
+│       │   │   ├── stm32f4xx.h
+│       │   │   └── system_stm32f4xx.h
+│       │   └── STM32F4xx_StdPeriph_Driver
+│       │       ├── inc
+│       │       │   ├── misc.h
+│       │       │   ├── stm32f4xx_adc.h
+│       │       │   ├── stm32f4xx_can.h
+│       │       │   ├── stm32f4xx_crc.h
+│       │       │   ├── stm32f4xx_cryp.h
+│       │       │   ├── stm32f4xx_dac.h
+│       │       │   ├── stm32f4xx_dbgmcu.h
+│       │       │   ├── stm32f4xx_dcmi.h
+│       │       │   ├── stm32f4xx_dma.h
+│       │       │   ├── stm32f4xx_exti.h
+│       │       │   ├── stm32f4xx_flash.h
+│       │       │   ├── stm32f4xx_fsmc.h
+│       │       │   ├── stm32f4xx_gpio.h
+│       │       │   ├── stm32f4xx_hash.h
+│       │       │   ├── stm32f4xx_i2c.h
+│       │       │   ├── stm32f4xx_iwdg.h
+│       │       │   ├── stm32f4xx_pwr.h
+│       │       │   ├── stm32f4xx_rcc.h
+│       │       │   ├── stm32f4xx_rng.h
+│       │       │   ├── stm32f4xx_rtc.h
+│       │       │   ├── stm32f4xx_sdio.h
+│       │       │   ├── stm32f4xx_spi.h
+│       │       │   ├── stm32f4xx_syscfg.h
+│       │       │   ├── stm32f4xx_tim.h
+│       │       │   ├── stm32f4xx_usart.h
+│       │       │   └── stm32f4xx_wwdg.h
+│       │       └── src
+│       │           ├── misc.c
+│       │           ├── stm32f4xx_adc.c
+│       │           ├── stm32f4xx_can.c
+│       │           ├── stm32f4xx_crc.c
+│       │           ├── stm32f4xx_cryp_aes.c
+│       │           ├── stm32f4xx_cryp.c
+│       │           ├── stm32f4xx_cryp_des.c
+│       │           ├── stm32f4xx_cryp_tdes.c
+│       │           ├── stm32f4xx_dac.c
+│       │           ├── stm32f4xx_dbgmcu.c
+│       │           ├── stm32f4xx_dcmi.c
+│       │           ├── stm32f4xx_dma.c
+│       │           ├── stm32f4xx_exti.c
+│       │           ├── stm32f4xx_flash.c
+│       │           ├── stm32f4xx_fsmc.c
+│       │           ├── stm32f4xx_gpio.c
+│       │           ├── stm32f4xx_hash.c
+│       │           ├── stm32f4xx_hash_md5.c
+│       │           ├── stm32f4xx_hash_sha1.c
+│       │           ├── stm32f4xx_i2c.c
+│       │           ├── stm32f4xx_iwdg.c
+│       │           ├── stm32f4xx_pwr.c
+│       │           ├── stm32f4xx_rcc.c
+│       │           ├── stm32f4xx_rng.c
+│       │           ├── stm32f4xx_rtc.c
+│       │           ├── stm32f4xx_sdio.c
+│       │           ├── stm32f4xx_spi.c
+│       │           ├── stm32f4xx_syscfg.c
+│       │           ├── stm32f4xx_tim.c
+│       │           ├── stm32f4xx_usart.c
+│       │           └── stm32f4xx_wwdg.c
+│       ├── scripts
+│       │   └── arm_cortex_m4_512.template
+│       └── source
+│           ├── main.template
+│           ├── startup_stm32f4xx.template
+│           ├── syscall.template
+│           ├── system_stm32f4xx.template
+│           └── tinynew.template
+└── log
+    └── gen_stm32.log
+```
+
 ### COPYRIGHT AND LICENCE
 
 Copyright (C) 2019 by https://vroncevic.github.io/gen_stm32/
