@@ -20,6 +20,9 @@ import sys
 from inspect import stack
 
 try:
+    from stm32_pro.read_template import ReadTemplate
+    from stm32_pro.write_template import WriteTemplate
+
     from ats_utilities.console_io.verbose import verbose_message
     from ats_utilities.console_io.error import error_message
     from ats_utilities.exceptions.ats_type_error import ATSTypeError
@@ -53,7 +56,7 @@ class STM32Setup(object):
                 gen_pro_setup - Generate project skeleton
     """
 
-    __slots__ = ('VERBOSE')
+    __slots__ = ('VERBOSE', '__reader', '__writer')
     VERBOSE = 'GEN_STM32::STM32_SETUP::STM32SETUP'
 
     def __init__(self, verbose=False):
@@ -64,7 +67,8 @@ class STM32Setup(object):
             :exceptions: None
         """
         verbose_message(STM32Setup.VERBOSE, verbose, 'Initial setup')
-        pass
+        self.__reader = ReadTemplate(verbose=verbose)
+        self.__writer = WriteTemplate(verbose=verbose)
 
     def gen_pro_setup(self, project_name, verbose=False):
         """
@@ -78,5 +82,18 @@ class STM32Setup(object):
             :exceptions: ATSBadCallError | ATSTypeError
         """
         func, status, setup_content = stack()[0][3], False, None
-        return True
+        project_txt = 'Argument: expected project_name <str> object'
+        project_msg = "{0} {1} {2}".format('def', func, project_txt)
+        if project_name is None or not project_name:
+            raise ATSBadCallError(project_msg)
+        if not isinstance(project_name, str):
+            raise ATSTypeError(project_msg)
+        verbose_message(
+            STM32Setup.VERBOSE, verbose, 'Generating project', project_name
+        )
+        project_data = self.__reader.read(verbose=verbose)
+        project_data['name'] = project_name
+        if bool(project_data):
+            status = self.__writer.write(project_data, verbose=verbose)
+        return True if status else False
 
