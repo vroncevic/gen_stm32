@@ -17,9 +17,10 @@
 #
 
 import sys
+from errno import EEXIST
 from inspect import stack
-from os import getcwd, chmod, mkdir, listdir
-from os.path import exists, isdir
+from os import getcwd, chmod, mkdir, listdir, makedirs
+from os.path import exists, isdir, dirname
 from string import Template
 from shutil import copy
 
@@ -67,6 +68,31 @@ class WriteTemplate(object):
         """
         verbose_message(WriteTemplate.VERBOSE, verbose, 'Initial writer')
 
+    def mkdirs(self, filename, verbose=False):
+        """
+            Create project directories
+            :param filename: filename path
+            :type filename: <str>
+            :param verbose: Enable/disable verbose option
+            :type verbose: <bool>
+            :exception: ATSBadCallError | ATSTypeError
+        """
+        func, current_dir = stack()[0][3], getcwd()
+        filename_txt = 'First argument: expected filename <str> object'
+        filename_msg = "{0} {1} {2}".format('def', func, filename_txt)
+        if filename is None or not filename:
+            raise ATSBadCallError(filename_msg)
+        if not isinstance(filename, str):
+            raise ATSTypeError(filename_msg)
+        filename = "{0}/{1}".format(current_dir, filename)
+        if not exists(dirname(filename)):
+            try:
+                makedirs(dirname(filename))
+            except OSError as exc:
+                # Guard against race condition
+                if exc.errno != EEXIST:
+                    raise
+
     def write(self, project_data, verbose=False):
         """
             Write setup content to file.
@@ -87,18 +113,16 @@ class WriteTemplate(object):
         if not isinstance(project_data, dict):
             raise ATSTypeError(setup_msg)
         project_name = project_data['name']
-        pdirs = [
-            'source', 'includes', 'scripts', 'build', 'build/source',
-            'build/includes', 'build/includes/STM32F4xx_StdPeriph_Driver',
-            'build/includes/STM32F4xx_StdPeriph_Driver/src', 'includes/CMSIS',
-            'includes/STM32F4xx', 'includes/STM32F4xx_StdPeriph_Driver',
-            'includes/STM32F4xx_StdPeriph_Driver/inc',
-            'includes/STM32F4xx_StdPeriph_Driver/src'
-        ]
-        for pdir in pdirs:
-            pro_dir = "{0}/{1}".format(current_dir, pdir)
-            if not exists(pro_dir):
-                mkdir(pro_dir)
+        for section in project_data.keys():
+            if section == 'name':
+                continue
+            for section_item in project_data[section]:
+                for section_item_key in section_item.keys():
+                    if section == 'includes':
+                        filename = section_item[section_item_key]
+                    else:
+                        filename = section_item[section_item_key][0]
+                    self.mkdirs(filename, verbose=verbose)
         for section in project_data.keys():
             if section == 'name':
                 continue
