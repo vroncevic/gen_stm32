@@ -57,7 +57,7 @@ class WriteTemplate(object):
     """
 
     __slots__ = ('VERBOSE')
-    VERBOSE = 'GEN_AVR8::AVR8_PRO::WRITE_TEMPLATE'
+    VERBOSE = 'GEN_STM32::STM32_PRO::WRITE_TEMPLATE'
 
     def __init__(self, verbose=False):
         """
@@ -135,8 +135,7 @@ class WriteTemplate(object):
                     for filename in listdir(src_dir):
                         if filename.endswith('.h') or filename.endswith('.c'):
                             copy(
-                                "{0}{1}".format(src_dir, filename),
-                                dst_dir
+                                "{0}{1}".format(src_dir, filename), dst_dir
                             )
             else:
                 for section_item in project_data[section]:
