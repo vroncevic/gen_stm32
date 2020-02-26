@@ -70,7 +70,7 @@ class ReadTemplate(FileChecking):
         '__tmp_cfg',
         '__pro_cfg'
     )
-    VERBOSE = 'GEN_AVR8::AVR8_PRO::READ_TEMPLATE'
+    VERBOSE = 'GEN_STM32::STM32_PRO::READ_TEMPLATE'
     __TEMPLATE_DIR = '/../../conf/template/'
     __PROJECT_TEMPLATE = 'project_template.yaml'
     __PROJECT_SETUP = 'project_setup.yaml'
@@ -154,9 +154,9 @@ class ReadTemplate(FileChecking):
                                 setup_content[tmp_sec] = item_list
                         else:
                             module_dir = dirname(__file__)
-                            calc_path = '/../../conf/template/includes/'
+                            mid_path = '/../../conf/template/includes/'
                             tmp_item = "{0}{1}{2}".format(
-                                module_dir, calc_path, tmp_item
+                                module_dir, mid_path, tmp_item
                             )
                             item_list.append({tmp_item: pro_item})
                             setup_content[tmp_sec] = item_list
