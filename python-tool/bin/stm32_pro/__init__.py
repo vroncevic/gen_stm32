@@ -3,4 +3,3 @@
 """
     Generating STM32 project structure
 """
-

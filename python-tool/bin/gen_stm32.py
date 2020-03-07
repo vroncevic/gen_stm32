@@ -1,20 +1,24 @@
 # -*- coding: utf-8 -*-
-# gen_stm32.py
-# Copyright (C) 2019 Vladimir Roncevic <elektron.ronca@gmail.com>
-#
-# gen_stm32 is free software: you can redistribute it and/or modify it
-# under the terms of the GNU General Public License as published by the
-# Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# gen_stm32 is distributed in the hope that it will be useful, but
-# WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-# See the GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License along
-# with this program. If not, see <http://www.gnu.org/licenses/>.
-#
+
+"""
+ Module
+     gen_stm32.py
+ Copyright
+     Copyright (C) 2019 Vladimir Roncevic <elektron.ronca@gmail.com>
+     gen_stm32 is free software: you can redistribute it and/or modify it
+     under the terms of the GNU General Public License as published by the
+     Free Software Foundation, either version 3 of the License, or
+     (at your option) any later version.
+     gen_stm32 is distributed in the hope that it will be useful, but
+     WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+     See the GNU General Public License for more details.
+     You should have received a copy of the GNU General Public License along
+     with this program. If not, see <http://www.gnu.org/licenses/>.
+ Info
+     Define class GenSTM32 with attribute(s) and method(s).
+     Load a settings, create an interface and run operation(s).
+"""
 
 import sys
 from os import getcwd
@@ -23,6 +27,7 @@ try:
     from pathlib import Path
 
     from stm32_pro.stm32_setup import STM32Setup
+
     from ats_utilities.cfg_base import CfgBase
     from ats_utilities.console_io.error import error_message
     from ats_utilities.console_io.verbose import verbose_message
@@ -91,8 +96,8 @@ class GenSTM32(CfgBase):
         if self.tool_status:
             self.show_base_info(verbose=verbose)
             if len(sys.argv) > 1:
-                op = sys.argv[1]
-                if op not in GenSTM32.__OPS:
+                operation = sys.argv[1]
+                if operation not in GenSTM32.__OPS:
                     sys.argv = []
                     sys.argv.append("-h")
             else:
@@ -104,11 +109,12 @@ class GenSTM32(CfgBase):
             project_exists = Path(project_path).exists()
             if num_of_args == 1 and opts.pro and not project_exists:
                 generator, gen_status = STM32Setup(verbose=verbose), False
-                message = "{0} {1} [{2}]".format(
-                    "[{0}]".format(self.name),
-                    'Generating STM32 project skeleton', opts.pro
+                print(
+                    "{0} {1} [{2}]".format(
+                        "[{0}]".format(self.name),
+                        'Generating STM32 project skeleton', opts.pro
+                    )
                 )
-                print(message)
                 gen_status = generator.gen_pro_setup("{0}".format(opts.pro))
                 if gen_status:
                     success_message(self.name, 'Done\n')
@@ -120,4 +126,3 @@ class GenSTM32(CfgBase):
         else:
             error_message('gen_stm32', 'Tool is not operational')
         return True if status else False
-
