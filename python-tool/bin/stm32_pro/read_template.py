@@ -165,4 +165,3 @@ class ReadTemplate(FileChecking):
                             ReadTemplate.VERBOSE, 'Not aligned templates'
                         )
         return setup_content
-
