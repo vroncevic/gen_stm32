@@ -1,3 +1,16 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [STM32 project skeleton generator.](#stm32-project-skeleton-generator)
+    - [INSTALLATION](#installation)
+    - [DEPENDENCIES](#dependencies)
+    - [GENERATION FLOW OF STM32 PROJECT SETUP](#generation-flow-of-stm32-project-setup)
+    - [TOOL STRUCTURE](#tool-structure)
+    - [COPYRIGHT AND LICENCE](#copyright-and-licence)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # STM32 project skeleton generator.
 
 gen_stm32 is toolset for generation STM32 project skeleton for
