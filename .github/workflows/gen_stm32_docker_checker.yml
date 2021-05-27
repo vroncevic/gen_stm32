@@ -1,5 +1,4 @@
 name: gen_stm32 docker checker
-
 on:
   push:
     branches: [ master ]

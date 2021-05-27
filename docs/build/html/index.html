@@ -1,0 +1,416 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>STM32 project skeleton generator &mdash; gen_stm32 https://github.com/vroncevic/gen_stm32/releases documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gen_stm32" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home" alt="Documentation Home"> gen_stm32
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v1.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="modules.html">gen_stm32</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">STM32 project skeleton generator</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">gen_stm32</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>STM32 project skeleton generator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="stm32-project-skeleton-generator">
+<h1>STM32 project skeleton generator<a class="headerlink" href="#stm32-project-skeleton-generator" title="Permalink to this headline">¶</a></h1>
+<p><strong>gen_stm32</strong> is toolset for generation STM32 project skeleton for development of embedded applications.</p>
+<p>Developed in <a class="reference external" href="https://www.python.org/">python</a> code: <strong>100%</strong>.</p>
+<p>The README is used to introduce the tool and provide instructions on
+how to install the tool, any machine dependencies it may have and any
+other information that should be provided before the tool is installed.</p>
+<p><a class="reference external" href="https://github.com/vroncevic/gen_stm32/workflows/Python%20package/badge.svg?branch=master"><img alt="Python package" src="https://github.com/vroncevic/gen_stm32/workflows/Python%20package/badge.svg" /></a> <a class="reference external" href="https://github.com/vroncevic/gen_stm32/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/vroncevic/gen_stm32.svg" /></a> <a class="reference external" href="https://gen_stm32.readthedocs.io/projects/gen_stm32/en/latest/?badge=latest"><img alt="Documentation Status" src="https://readthedocs.org/projects/gen_stm32/badge/?version=latest" /></a> <a class="reference external" href="https://github.com/vroncevic/gen_stm32/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/vroncevic/gen_stm32.svg" /></a></p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="modules.html">gen_stm32</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gen_stm32.html">gen_stm32 package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gen_stm32.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gen_stm32.pro.html">gen_stm32.pro package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="gen_stm32.html#module-gen_stm32">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">STM32 project skeleton generator</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://github.com/vroncevic/gen_stm32/workflows/Install%20Python2%20Package%20gen_stm32/badge.svg?branch=master"><img alt="Install Python2 Package" src="https://github.com/vroncevic/gen_stm32/workflows/Install%20Python2%20Package%20gen_stm32/badge.svg" /></a> <a class="reference external" href="https://github.com/vroncevic/gen_stm32/workflows/Install%20Python3%20Package%20gen_stm32/badge.svg?branch=master"><img alt="Install Python3 Package" src="https://github.com/vroncevic/gen_stm32/workflows/Install%20Python3%20Package%20gen_stm32/badge.svg" /></a></p>
+<p>Navigate to release <a class="reference external" href="https://github.com/vroncevic/gen_stm32/releases">page</a> download and extract release archive.</p>
+<p>To install <strong>gen_stm32</strong> type the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar xvzf gen_stm32-x.y.z.tar.gz
+<span class="nb">cd</span> gen_stm32-x.y.z/
+<span class="c1"># python2</span>
+pip install -r requirements.txt
+python setup.py install_lib
+python setup.py install_data
+python setup.py install_egg_info
+<span class="c1"># pyton3</span>
+pip3 install -r requirements.txt
+python3 setup.py install_lib
+python3 setup.py install_data
+python3 setup.py install_egg_info
+</pre></div>
+</div>
+<p>You can use Docker to create image/container, or You can use pip to install:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># pyton2</span>
+pip install gen-stm32
+<span class="c1"># pyton3</span>
+pip3 install gen-stm32
+</pre></div>
+</div>
+<p><a class="reference external" href="https://github.com/vroncevic/gen_stm32/actions?query=workflow%3A%22gen_stm32+docker+checker%22"><img alt="GitHub docker checker" src="https://github.com/vroncevic/gen_stm32/workflows/gen_stm32%20docker%20checker/badge.svg" /></a></p>
+</div>
+<div class="section" id="dependencies">
+<h1>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h1>
+<p><strong>gen_stm32</strong> requires next modules and libraries:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://pypi.org/project/ats-utilities/">ats-utilities - Python App/Tool/Script Utilities</a></li>
+</ul>
+</div>
+<div class="section" id="generation-flow-of-project-setup">
+<h1>Generation flow of project setup<a class="headerlink" href="#generation-flow-of-project-setup" title="Permalink to this headline">¶</a></h1>
+<p>Base flow of generation process:</p>
+<img alt="https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/docs/python_setup_flow.png" src="https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/docs/python_setup_flow.png" />
+</div>
+<div class="section" id="tool-structure">
+<h1>Tool structure<a class="headerlink" href="#tool-structure" title="Permalink to this headline">¶</a></h1>
+<p><strong>gen_stm32</strong> is based on Template mechanism:</p>
+<img alt="https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/docs/python_setup.png" src="https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/docs/python_setup.png" />
+<p>Code structure:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gen_stm32/
+├── conf/
+│   ├── gen_stm32.cfg
+│   ├── gen_stm32_util.cfg
+│   ├── project.yaml
+│   └── template/
+│       ├── build/
+│       │   ├── includes/
+│       │   │   └── STM32F4xx_StdPeriph_Driver/
+│       │   │       └── src/
+│       │   │           └── subdir.template
+│       │   ├── Makefile.template
+│       │   ├── objects.template
+│       │   ├── source/
+│       │   │   └── subdir.template
+│       │   └── sources.template
+│       ├── includes/
+│       │   ├── CMSIS/
+│       │   │   ├── arm_common_tables.template
+│       │   │   ├── arm_math.template
+│       │   │   ├── core_cm0.template
+│       │   │   ├── core_cm3.template
+│       │   │   ├── core_cm4_simd.template
+│       │   │   ├── core_cm4.template
+│       │   │   ├── core_cmFunc.template
+│       │   │   └── core_cmInstr.template
+│       │   ├── STM32F4xx/
+│       │   │   ├── stm32f4xx_conf.template
+│       │   │   ├── stm32f4xx.template
+│       │   │   └── system_stm32f4xx.template
+│       │   └── STM32F4xx_StdPeriph_Driver/
+│       │       ├── inc/
+│       │       │   ├── misc.template
+│       │       │   ├── stm32f4xx_adc.template
+│       │       │   ├── stm32f4xx_can.template
+│       │       │   ├── stm32f4xx_crc.template
+│       │       │   ├── stm32f4xx_cryp.template
+│       │       │   ├── stm32f4xx_dac.template
+│       │       │   ├── stm32f4xx_dbgmcu.template
+│       │       │   ├── stm32f4xx_dcmi.template
+│       │       │   ├── stm32f4xx_dma.template
+│       │       │   ├── stm32f4xx_exti.template
+│       │       │   ├── stm32f4xx_flash.template
+│       │       │   ├── stm32f4xx_fsmc.template
+│       │       │   ├── stm32f4xx_gpio.template
+│       │       │   ├── stm32f4xx_hash.template
+│       │       │   ├── stm32f4xx_i2c.template
+│       │       │   ├── stm32f4xx_iwdg.template
+│       │       │   ├── stm32f4xx_pwr.template
+│       │       │   ├── stm32f4xx_rcc.template
+│       │       │   ├── stm32f4xx_rng.template
+│       │       │   ├── stm32f4xx_rtc.template
+│       │       │   ├── stm32f4xx_sdio.template
+│       │       │   ├── stm32f4xx_spi.template
+│       │       │   ├── stm32f4xx_syscfg.template
+│       │       │   ├── stm32f4xx_tim.template
+│       │       │   ├── stm32f4xx_usart.template
+│       │       │   └── stm32f4xx_wwdg.template
+│       │       └── src/
+│       │           ├── misc.template
+│       │           ├── stm32f4xx_adc.template
+│       │           ├── stm32f4xx_can.template
+│       │           ├── stm32f4xx_crc.template
+│       │           ├── stm32f4xx_cryp_aes.template
+│       │           ├── stm32f4xx_cryp_des.template
+│       │           ├── stm32f4xx_cryp_tdes.template
+│       │           ├── stm32f4xx_cryp.template
+│       │           ├── stm32f4xx_dac.template
+│       │           ├── stm32f4xx_dbgmcu.template
+│       │           ├── stm32f4xx_dcmi.template
+│       │           ├── stm32f4xx_dma.template
+│       │           ├── stm32f4xx_exti.template
+│       │           ├── stm32f4xx_flash.template
+│       │           ├── stm32f4xx_fsmc.template
+│       │           ├── stm32f4xx_gpio.template
+│       │           ├── stm32f4xx_hash_md5.template
+│       │           ├── stm32f4xx_hash_sha1.template
+│       │           ├── stm32f4xx_hash.template
+│       │           ├── stm32f4xx_i2c.template
+│       │           ├── stm32f4xx_iwdg.template
+│       │           ├── stm32f4xx_pwr.template
+│       │           ├── stm32f4xx_rcc.template
+│       │           ├── stm32f4xx_rng.template
+│       │           ├── stm32f4xx_rtc.template
+│       │           ├── stm32f4xx_sdio.template
+│       │           ├── stm32f4xx_spi.template
+│       │           ├── stm32f4xx_syscfg.template
+│       │           ├── stm32f4xx_tim.template
+│       │           ├── stm32f4xx_usart.template
+│       │           └── stm32f4xx_wwdg.template
+│       ├── scripts/
+│       │   └── arm_cortex_m4_512.template
+│       └── source/
+│           ├── main.template
+│           ├── startup_stm32f4xx.template
+│           ├── syscall.template
+│           ├── system_stm32f4xx.template
+│           └── tinynew.template
+├── __init__.py
+├── log/
+│   └── gen_stm32.log
+├── pro/
+│   ├── config
+│   │   ├── __init__.py
+│   │   ├── pro_name.py
+│   │   └── template_dir.py
+│   ├── __init__.py
+│   ├── read_template.py
+│   └── write_template.py
+└── run/
+    └── gen_stm32_run.py
+</pre></div>
+</div>
+</div>
+<div class="section" id="copyright-and-licence">
+<h1>Copyright and licence<a class="headerlink" href="#copyright-and-licence" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://www.gnu.org/licenses/gpl-3.0"><img alt="License: GPL v3" src="https://img.shields.io/badge/License-GPLv3-blue.svg" /></a> <a class="reference external" href="https://opensource.org/licenses/Apache-2.0"><img alt="License: Apache 2.0" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a></p>
+<p>Copyright (C) 2018 by <a class="reference external" href="https://vroncevic.github.io/gen_stm32">vroncevic.github.io/gen_stm32</a></p>
+<p><strong>gen_stm32</strong> is free software; you can redistribute it and/or modify
+it under the same terms as Python itself, either Python version 2.x/3.x or,
+at your option, any later version of Python 3 you may have available.</p>
+<p>Lets help and support PSF.</p>
+<p><a class="reference external" href="https://www.python.org/psf/"><img alt="Python Software Foundation" src="https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/docs/psf-logo-alpha.png" /></a></p>
+<p><a class="reference external" href="https://psfmember.org/index.php?q=civicrm/contribute/transact&amp;reset=1&amp;id=2"><img alt="Donate" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" /></a></p>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="modules.html" class="btn btn-neutral float-right" title="gen_stm32" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2018 Vladimir Roncevic &lt;elektron.ronca@gmail.com&gt;
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,5 +1,4 @@
 name: Install Python2 Package gen_stm32
-
 on:
   push:
     branches: [ master ]
@@ -21,4 +20,4 @@ jobs:
         pip install -r requirements.txt
     - name: Build and publish
       run: |
-        python setup.py sdist bdist_wheel
+        python setup.py --github sdist bdist_wheel
