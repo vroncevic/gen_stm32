@@ -32,7 +32,7 @@ other information that should be provided before the modules are installed.
 
 ### Installation
 
-![Install Python2 Package](https://github.com/vroncevic/gen_stm32/workflows/Install%20Python2%20Package%20gen_autoconf/badge.svg?branch=master) ![Install Python3 Package](https://github.com/vroncevic/gen_stm32/workflows/Install%20Python3%20Package%20gen_autoconf/badge.svg?branch=master)
+![Install Python2 Package](https://github.com/vroncevic/gen_stm32/workflows/Install%20Python2%20Package%20ggen_stm32/badge.svg?branch=master) ![Install Python3 Package](https://github.com/vroncevic/gen_stm32/workflows/Install%20Python3%20Package%20gen_stm32/badge.svg?branch=master)
 
 Currently there are three ways to install tool:
 * Install process based on pip
@@ -75,7 +75,7 @@ python3 setup.py install_data
 
 You can use Dockerfile to create image/container.
 
-[![gen_stm32 docker checker](https://github.com/vroncevic/gen_stm32/workflows/gen_stm32%20docker%20checker/badge.svg)](https://github.com/vroncevic/gen_stm32/actions?query=workflow%3A%22gen_autoconf+docker+checker%22)
+[![gen_stm32 docker checker](https://github.com/vroncevic/gen_stm32/workflows/gen_stm32%20docker%20checker/badge.svg)](https://github.com/vroncevic/gen_stm32/actions?query=workflow%3A%22gen_stm32+docker+checker%22)
 
 ### Dependencies
 
