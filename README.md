@@ -32,7 +32,7 @@ other information that should be provided before the modules are installed.
 
 ### Installation
 
-![Install Python2 Package](https://github.com/vroncevic/gen_stm32/workflows/Install%20Python2%20Package%20ggen_stm32/badge.svg?branch=master) ![Install Python3 Package](https://github.com/vroncevic/gen_stm32/workflows/Install%20Python3%20Package%20gen_stm32/badge.svg?branch=master)
+![Install Python2 Package](https://github.com/vroncevic/gen_stm32/workflows/Install%20Python2%20Package%20gen_stm32/badge.svg?branch=master) ![Install Python3 Package](https://github.com/vroncevic/gen_stm32/workflows/Install%20Python3%20Package%20gen_stm32/badge.svg?branch=master)
 
 Currently there are three ways to install tool:
 * Install process based on pip
