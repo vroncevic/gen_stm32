@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>gen_stm32.pro.write_template module &mdash; gen_stm32 https://github.com/vroncevic/gen_stm32/releases documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="gen_stm32.pro.read_template module" href="gen_stm32.pro.read_template.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> gen_stm32
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v1.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">gen_stm32</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="gen_stm32.html">gen_stm32 package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="gen_stm32.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="gen_stm32.pro.html">gen_stm32.pro package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="gen_stm32.html#module-gen_stm32">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">STM32 project skeleton generator</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">gen_stm32</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">gen_stm32</a> &raquo;</li>
+        
+          <li><a href="gen_stm32.html">gen_stm32 package</a> &raquo;</li>
+        
+          <li><a href="gen_stm32.pro.html">gen_stm32.pro package</a> &raquo;</li>
+        
+      <li>gen_stm32.pro.write_template module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/gen_stm32.pro.write_template.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-gen_stm32.pro.write_template">
+<span id="gen-stm32-pro-write-template-module"></span><h1>gen_stm32.pro.write_template module<a class="headerlink" href="#module-gen_stm32.pro.write_template" title="Permalink to this headline">¶</a></h1>
+<dl class="docutils">
+<dt>Module</dt>
+<dd>write_template.py</dd>
+<dt>Copyright</dt>
+<dd>Copyright (C) 2018 Vladimir Roncevic &lt;<a class="reference external" href="mailto:elektron&#46;ronca&#37;&#52;&#48;gmail&#46;com">elektron<span>&#46;</span>ronca<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;
+gen_stm32 is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the
+Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+gen_stm32 is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details.
+You should have received a copy of the GNU General Public License along
+with this program. If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</dd>
+<dt>Info</dt>
+<dd>Define class WriteTemplate with attribute(s) and method(s).
+Created API for writing template content with parameters.</dd>
+</dl>
+<dl class="class">
+<dt id="gen_stm32.pro.write_template.WriteTemplate">
+<em class="property">class </em><code class="descclassname">gen_stm32.pro.write_template.</code><code class="descname">WriteTemplate</code><span class="sig-paren">(</span><em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gen_stm32/pro/write_template.html#WriteTemplate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gen_stm32.pro.write_template.WriteTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ats_utilities.config_io.base_check.FileChecking</span></code></p>
+<p>Define class WriteTemplate with attribute(s) and method(s).
+Created API for writing template content with parameters.
+It defines:</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">attributes:</th><td class="field-body"><div class="first last line-block">
+<div class="line">GEN_VERBOSE - console text indicator for process-phase.</div>
+</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">methods:</th><td class="field-body"><div class="first last line-block">
+<div class="line">__init__ - initial constructor.</div>
+<div class="line">write - write a templates with parameters.</div>
+<div class="line">__str__ - dunder method for WriteTemplate.</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<dl class="attribute">
+<dt id="gen_stm32.pro.write_template.WriteTemplate.GEN_VERBOSE">
+<code class="descname">GEN_VERBOSE</code><em class="property"> = 'GEN_STM32::PRO::WRITE_TEMPLATE'</em><a class="headerlink" href="#gen_stm32.pro.write_template.WriteTemplate.GEN_VERBOSE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="gen_stm32.pro.write_template.WriteTemplate.VERBOSE">
+<code class="descname">VERBOSE</code><em class="property"> = 'ATS_UTILITIES'</em><a class="headerlink" href="#gen_stm32.pro.write_template.WriteTemplate.VERBOSE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="gen_stm32.pro.write_template.WriteTemplate.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>templates</em>, <em>project_name</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gen_stm32/pro/write_template.html#WriteTemplate.write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gen_stm32.pro.write_template.WriteTemplate.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a templates with parameters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>templates</strong> (<em>&lt;list&gt;</em>) – parameter templates.</li>
+<li><strong>project_name</strong> (<em>&lt;str&gt;</em>) – parameter project name.</li>
+<li><strong>verbose</strong> (<em>&lt;bool&gt;</em>) – enable/disable verbose option.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">boolean status, True (success) | False.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">&lt;bool&gt;</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Exceptions:</th><td class="field-body"><p class="first last">ATSTypeError | ATSBadCallError</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="gen_stm32.pro.read_template.html" class="btn btn-neutral float-left" title="gen_stm32.pro.read_template module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2018 Vladimir Roncevic &lt;elektron.ronca@gmail.com&gt;
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
