@@ -30,7 +30,6 @@ try:
     from gen_stm32.pro.write_template import WriteTemplate
     from ats_utilities.checker import ATSChecker
     from ats_utilities.config_io.base_check import FileChecking
-    from ats_utilities.console_io.success import success_message
     from ats_utilities.console_io.verbose import verbose_message
     from ats_utilities.config_io.yaml.yaml2object import Yaml2Object
     from ats_utilities.exceptions.ats_type_error import ATSTypeError
@@ -43,7 +42,7 @@ __author__ = 'Vladimir Roncevic'
 __copyright__ = 'Copyright 2018, https://vroncevic.github.io/gen_stm32'
 __credits__ = ['Vladimir Roncevic']
 __license__ = 'https://github.com/vroncevic/gen_stm32/blob/dev/LICENSE'
-__version__ = '1.1.0'
+__version__ = '1.1.1'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
@@ -137,7 +136,7 @@ class STM32Setup(FileChecking, ProConfig, ProName):
             raise ATSBadCallError(error)
         status = False
         if bool(self.config):
-            templates = self.__reader.read(self.config , verbose=verbose)
+            templates = self.__reader.read(self.config, verbose=verbose)
             if bool(templates):
                 status = self.__writer.write(
                     templates, project_name, verbose=verbose

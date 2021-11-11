@@ -7,7 +7,7 @@ sys.path.insert(0, os.path.abspath('../../'))
 project = u'gen_stm32'
 copyright = u'2018 Vladimir Roncevic <elektron.ronca@gmail.com>'
 author = u'Vladimir Roncevic <elektron.ronca@gmail.com>'
-version = u'v1.1.0'
+version = u'v1.1.1'
 release = u'https://github.com/vroncevic/gen_stm32/releases'
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode']
 templates_path = ['_templates']

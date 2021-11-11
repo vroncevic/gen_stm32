@@ -24,6 +24,7 @@ import sys
 from os.path import exists
 
 try:
+    from six import add_metaclass
     from pathlib import Path
     from gen_stm32.pro import STM32Setup
     from ats_utilities.logging import ATSLogger
@@ -40,12 +41,13 @@ __author__ = 'Vladimir Roncevic'
 __copyright__ = 'Copyright 2018, https://vroncevic.github.io/gen_stm32'
 __credits__ = ['Vladimir Roncevic']
 __license__ = 'https://github.com/vroncevic/gen_stm32/blob/dev/LICENSE'
-__version__ = '1.1.0'
+__version__ = '1.1.1'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
 
 
+@add_metaclass(CooperativeMeta)
 class GenSTM32(CfgCLI):
     '''
         Defined class GenSTM32 with attribute(s) and method(s).
@@ -53,7 +55,6 @@ class GenSTM32(CfgCLI):
         It defines:
 
             :attributes:
-                | __metaclass__ - setting cooperative metaclasses.
                 | GEN_VERBOSE - console text indicator for process-phase.
                 | CONFIG - configuration file path.
                 | LOG - tool log file path.
@@ -65,7 +66,6 @@ class GenSTM32(CfgCLI):
                 | __str__ - dunder method for GenSTM32.
     '''
 
-    __metaclass__ = CooperativeMeta
     GEN_VERBOSE = 'GEN_STM32'
     CONFIG = '/conf/gen_stm32.cfg'
     LOG = '/log/gen_stm32.log'
