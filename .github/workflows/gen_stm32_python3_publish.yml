@@ -2,8 +2,20 @@ name: Install Python3 Package gen_stm32
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'gen_stm32/**'
+      - 'MANIFEST.in'
+      - 'pyproject.toml'
+      - 'setup.cfg'
+      - 'setup.py'
   pull_request:
     branches: [ master ]
+    paths:
+      - 'gen_stm32/**'
+      - 'MANIFEST.in'
+      - 'pyproject.toml'
+      - 'setup.cfg'
+      - 'setup.py'
 jobs:
   deploy:
     runs-on: ubuntu-latest

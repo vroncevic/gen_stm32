@@ -124,6 +124,7 @@ setup(
     install_requires=['ats-utilities'],
     package_data = {
         'gen_stm32': [
+            'conf/gen_stm32.logo',
             'conf/gen_stm32.cfg',
             'conf/gen_stm32_util.cfg',
             'conf/project.yaml',
