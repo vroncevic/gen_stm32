@@ -21,10 +21,9 @@
 '''
 
 import sys
-from os.path import isdir
+from os.path import isdir, dirname, realpath
 
 try:
-    from pathlib import Path
     from gen_stm32.pro.config import ProConfig
     from gen_stm32.pro.config.template_dir import TemplateDir
     from ats_utilities.checker import ATSChecker
@@ -76,7 +75,7 @@ class ReadTemplate(FileChecking, TemplateDir):
         TemplateDir.__init__(self, verbose=verbose)
         verbose_message(ReadTemplate.GEN_VERBOSE, verbose, 'init reader')
         pro_template_dir = '{0}{1}'.format(
-            Path(__file__).parent, ReadTemplate.TEMPLATE_DIR
+            dirname(realpath(__file__)), ReadTemplate.TEMPLATE_DIR
         )
         if isdir(pro_template_dir):
             self.template_dir = pro_template_dir

@@ -3,7 +3,7 @@ STM32 project skeleton generator
 
 **gen_stm32** is toolset for generation STM32 project skeleton for development of embedded applications.
 
-Developed in `python <https://www.python.org/>`_ code: **100%**.
+Developed in `python <https://www.python.org/>`_ code.
 
 The README is used to introduce the tool and provide instructions on
 how to install the tool, any machine dependencies it may have and any
@@ -25,7 +25,7 @@ other information that should be provided before the tool is installed.
 
 .. toctree::
    :maxdepth: 4
-   :caption: Contents:
+   :caption: Contents
 
    modules
    self
@@ -45,7 +45,7 @@ Navigate to release `page`_ download and extract release archive.
 
 .. _page: https://github.com/vroncevic/gen_stm32/releases
 
-To install **gen_stm32** type the following:
+To install **gen_stm32** type the following
 
 .. code-block:: bash
 
@@ -62,7 +62,7 @@ To install **gen_stm32** type the following:
     python3 setup.py install_data
     python3 setup.py install_egg_info
 
-You can use Docker to create image/container, or You can use pip to install:
+You can use Docker to create image/container, or You can use pip to install
 
 .. code-block:: bash
 
@@ -79,21 +79,21 @@ You can use Docker to create image/container, or You can use pip to install:
 Dependencies
 -------------
 
-**gen_stm32** requires next modules and libraries:
+**gen_stm32** requires next modules and libraries
 
 * `ats-utilities - Python App/Tool/Script Utilities <https://pypi.org/project/ats-utilities/>`_
 
 Generation flow of project setup
 ---------------------------------
 
-Base flow of generation process:
+Base flow of generation process
 
 .. image:: https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/docs/python_setup_flow.png
 
 Tool structure
 ---------------
 
-**gen_stm32** is based on Template mechanism:
+**gen_stm32** is based on Template mechanism
 
 .. image:: https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/docs/python_setup.png
 
@@ -103,6 +103,7 @@ Code structure:
 
     gen_stm32/
     ├── conf/
+    │   ├── gen_stm32.logo
     │   ├── gen_stm32.cfg
     │   ├── gen_stm32_util.cfg
     │   ├── project.yaml

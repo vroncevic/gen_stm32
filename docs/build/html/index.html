@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>STM32 project skeleton generator &mdash; gen_stm32 https://github.com/vroncevic/gen_stm32/releases documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -38,7 +39,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="modules.html">gen_stm32</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">STM32 project skeleton generator</a></li>
@@ -68,16 +69,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="stm32-project-skeleton-generator">
+  <section id="stm32-project-skeleton-generator">
 <h1>STM32 project skeleton generator<a class="headerlink" href="#stm32-project-skeleton-generator" title="Permalink to this headline"></a></h1>
 <p><strong>gen_stm32</strong> is toolset for generation STM32 project skeleton for development of embedded applications.</p>
-<p>Developed in <a class="reference external" href="https://www.python.org/">python</a> code: <strong>100%</strong>.</p>
+<p>Developed in <a class="reference external" href="https://www.python.org/">python</a> code.</p>
 <p>The README is used to introduce the tool and provide instructions on
 how to install the tool, any machine dependencies it may have and any
 other information that should be provided before the tool is installed.</p>
 <p><a class="reference external" href="https://github.com/vroncevic/gen_stm32/workflows/Python%20package/badge.svg?branch=master"><img alt="Python package" src="https://github.com/vroncevic/gen_stm32/workflows/Python%20package/badge.svg" /></a> <a class="reference external" href="https://github.com/vroncevic/gen_stm32/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/vroncevic/gen_stm32.svg" /></a> <a class="reference external" href="https://gen_stm32.readthedocs.io/projects/gen_stm32/en/latest/?badge=latest"><img alt="Documentation Status" src="https://readthedocs.org/projects/gen_stm32/badge/?version=latest" /></a> <a class="reference external" href="https://github.com/vroncevic/gen_stm32/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/vroncevic/gen_stm32.svg" /></a></p>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="modules.html">gen_stm32</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="gen_stm32.html">gen_stm32 package</a><ul>
@@ -93,12 +94,12 @@ other information that should be provided before the tool is installed.</p>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">STM32 project skeleton generator</a></li>
 </ul>
 </div>
-</div>
-<div class="section" id="installation">
+</section>
+<section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h1>
 <p><a class="reference external" href="https://github.com/vroncevic/gen_stm32/workflows/Install%20Python2%20Package%20gen_stm32/badge.svg?branch=master"><img alt="Install Python2 Package" src="https://github.com/vroncevic/gen_stm32/workflows/Install%20Python2%20Package%20gen_stm32/badge.svg" /></a> <a class="reference external" href="https://github.com/vroncevic/gen_stm32/workflows/Install%20Python3%20Package%20gen_stm32/badge.svg?branch=master"><img alt="Install Python3 Package" src="https://github.com/vroncevic/gen_stm32/workflows/Install%20Python3%20Package%20gen_stm32/badge.svg" /></a></p>
 <p>Navigate to release <a class="reference external" href="https://github.com/vroncevic/gen_stm32/releases">page</a> download and extract release archive.</p>
-<p>To install <strong>gen_stm32</strong> type the following:</p>
+<p>To install <strong>gen_stm32</strong> type the following</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar xvzf gen_stm32-x.y.z.tar.gz
 <span class="nb">cd</span> gen_stm32-x.y.z/
 <span class="c1"># python2</span>
@@ -113,7 +114,7 @@ python3 setup.py install_data
 python3 setup.py install_egg_info
 </pre></div>
 </div>
-<p>You can use Docker to create image/container, or You can use pip to install:</p>
+<p>You can use Docker to create image/container, or You can use pip to install</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># pyton2</span>
 pip install gen-stm32
 <span class="c1"># pyton3</span>
@@ -121,26 +122,27 @@ pip3 install gen-stm32
 </pre></div>
 </div>
 <p><a class="reference external" href="https://github.com/vroncevic/gen_stm32/actions?query=workflow%3A%22gen_stm32+docker+checker%22"><img alt="GitHub docker checker" src="https://github.com/vroncevic/gen_stm32/workflows/gen_stm32%20docker%20checker/badge.svg" /></a></p>
-</div>
-<div class="section" id="dependencies">
+</section>
+<section id="dependencies">
 <h1>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline"></a></h1>
-<p><strong>gen_stm32</strong> requires next modules and libraries:</p>
+<p><strong>gen_stm32</strong> requires next modules and libraries</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pypi.org/project/ats-utilities/">ats-utilities - Python App/Tool/Script Utilities</a></p></li>
 </ul>
-</div>
-<div class="section" id="generation-flow-of-project-setup">
+</section>
+<section id="generation-flow-of-project-setup">
 <h1>Generation flow of project setup<a class="headerlink" href="#generation-flow-of-project-setup" title="Permalink to this headline"></a></h1>
-<p>Base flow of generation process:</p>
+<p>Base flow of generation process</p>
 <img alt="https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/docs/python_setup_flow.png" src="https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/docs/python_setup_flow.png" />
-</div>
-<div class="section" id="tool-structure">
+</section>
+<section id="tool-structure">
 <h1>Tool structure<a class="headerlink" href="#tool-structure" title="Permalink to this headline"></a></h1>
-<p><strong>gen_stm32</strong> is based on Template mechanism:</p>
+<p><strong>gen_stm32</strong> is based on Template mechanism</p>
 <img alt="https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/docs/python_setup.png" src="https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/docs/python_setup.png" />
 <p>Code structure:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gen_stm32/
 ├── conf/
+│   ├── gen_stm32.logo
 │   ├── gen_stm32.cfg
 │   ├── gen_stm32_util.cfg
 │   ├── project.yaml
@@ -252,8 +254,8 @@ pip3 install gen-stm32
     └── gen_stm32_run.py
 </pre></div>
 </div>
-</div>
-<div class="section" id="copyright-and-licence">
+</section>
+<section id="copyright-and-licence">
 <h1>Copyright and licence<a class="headerlink" href="#copyright-and-licence" title="Permalink to this headline"></a></h1>
 <p><a class="reference external" href="https://www.gnu.org/licenses/gpl-3.0"><img alt="License: GPL v3" src="https://img.shields.io/badge/License-GPLv3-blue.svg" /></a> <a class="reference external" href="https://opensource.org/licenses/Apache-2.0"><img alt="License: Apache 2.0" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a></p>
 <p>Copyright (C) 2018 by <a class="reference external" href="https://vroncevic.github.io/gen_stm32">vroncevic.github.io/gen_stm32</a></p>
@@ -263,15 +265,15 @@ at your option, any later version of Python 3 you may have available.</p>
 <p>Lets help and support PSF.</p>
 <p><a class="reference external" href="https://www.python.org/psf/"><img alt="Python Software Foundation" src="https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/docs/psf-logo-alpha.png" /></a></p>
 <p><a class="reference external" href="https://psfmember.org/index.php?q=civicrm/contribute/transact&amp;reset=1&amp;id=2"><img alt="Donate" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" /></a></p>
-</div>
-<div class="section" id="indices-and-tables">
+</section>
+<section id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline"></a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
-</div>
+</section>
 
 
            </div>

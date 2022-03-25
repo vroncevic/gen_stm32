@@ -2,8 +2,14 @@ name: gen_stm32 py checker
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'gen_stm32/**'
+      - 'setup.py'
   pull_request:
     branches: [ master ]
+    paths:
+      - 'gen_stm32/**'
+      - 'setup.py'
 jobs:
   build:
     runs-on: ubuntu-latest

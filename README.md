@@ -5,7 +5,7 @@
 **gen_stm32** is toolset for generation STM32 project skeleton for
 development of embedded applications.
 
-Developed in **[python](https://www.python.org/)** code: **100%**.
+Developed in **[python](https://www.python.org/)** code.
 
 The README is used to introduce the modules and provide instructions on
 how to install the modules, any machine dependencies it may have and any
@@ -34,7 +34,7 @@ other information that should be provided before the modules are installed.
 
 ![Install Python2 Package](https://github.com/vroncevic/gen_stm32/workflows/Install%20Python2%20Package%20gen_stm32/badge.svg?branch=master) ![Install Python3 Package](https://github.com/vroncevic/gen_stm32/workflows/Install%20Python3%20Package%20gen_stm32/badge.svg?branch=master)
 
-Currently there are three ways to install tool:
+Currently there are three ways to install tool
 * Install process based on pip
 * Install process based on setup.py (setuptools)
 * Install process based on docker mechanism
@@ -44,7 +44,8 @@ Currently there are three ways to install tool:
 Python package is located at **[pypi.org](https://pypi.org/project/gen_stm32/)**.
 
 You can install by using pip
-```
+
+```bash
 #python2
 pip install gen_stm32
 #python3
@@ -55,8 +56,9 @@ pip3 install gen_stm32
 
 Navigate to **[release page](https://github.com/vroncevic/gen_stm32/releases)** download and extract release archive.
 
-To install modules, locate and run setup.py, type the following:
-```
+To install modules, locate and run setup.py, type the following
+
+```bash
 tar xvzf gen_stm32-x.y.z.tar.gz
 cd gen_stm32-x.y.z
 #python2
@@ -79,27 +81,28 @@ You can use Dockerfile to create image/container.
 
 ### Dependencies
 
-This module requires these other modules and libraries:
+This module requires these other modules and libraries
 
 * ats_utilities https://vroncevic.github.io/ats_utilities
 
 ### Generation flow
 
-Base flow of generation process:
+Base flow of generation process
 
-![alt tag](https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/docs/gen_stm32_flow.png)
+![Generation flow](https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/docs/gen_stm32_flow.png)
 
 ### Tool structure
 
-gen_stm32 is based on Template mechanism:
+gen_stm32 is based on Template mechanism
 
-![alt tag](https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/docs/gen_stm32.png)
+![Generation block](https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/docs/gen_stm32.png)
 
-Generator structure:
+Generator structure
 
-```
+```bash
 gen_stm32/
 ├── conf/
+│   ├── gen_stm32.logo
 │   ├── gen_stm32.cfg
 │   ├── gen_stm32_util.cfg
 │   ├── project.yaml
@@ -215,7 +218,7 @@ gen_stm32/
 
 [![Documentation Status](https://readthedocs.org/projects/gen_stm32/badge/?version=latest)](https://gen_stm32.readthedocs.io/en/latest/?badge=latest)
 
-More documentation and info at:
+More documentation and info at
 
 * [gen_stm32.readthedocs.io](https://gen_stm32.readthedocs.io/en/latest/)
 * [www.python.org](https://www.python.org/)
