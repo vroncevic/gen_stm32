@@ -1,11 +1,12 @@
-name: TOC Generator gen_stm32
+name: gen_stm32_toc
 on:
   push:
+    branches: [ master ]
     paths:
       - '**.md'
 jobs:
   generateTOC:
-    name: TOC Generator
+    name: gen_stm32_toc
     runs-on: ubuntu-latest
     steps:
-      - uses: technote-space/toc-generator@v2
+      - uses: technote-space/toc-generator@v4

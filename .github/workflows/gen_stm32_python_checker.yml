@@ -1,0 +1,33 @@
+name: gen_stm32_python_checker
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - 'gen_stm32/**'
+      - 'tests/**'
+      - 'setup.py'
+  pull_request:
+    branches: [ master ]
+    paths:
+      - 'gen_stm32/**'
+      - 'tests/**'
+      - 'setup.py'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check max length of lines in modules
+        id: long_line_checker
+        run: |
+          modules_ok=0
+          modules=($(find gen_stm32/ tests/ -type f -name '*.py' -exec echo '{}' \;))
+          for mod in "${modules[@]}"; do line_length=$(wc -L < "${mod}"); [[ $line_length -gt 80 ]] && modules_ok=1; done
+          [[ $modules_ok -eq 0 ]] && echo ok || exit 1
+      - name: Check max number of lines in modules
+        id: num_line_checker
+        run: |
+          modules_ok=0
+          modules=($(find gen_stm32/ tests/ -type f -name '*.py' -exec echo '{}' \;))
+          for mod in "${modules[@]}"; do line_numbers=$(wc -l < "${mod}"); [[ $line_numbers -gt 300 ]] && modules_ok=1; done
+          [[ $modules_ok -eq 0 ]] && echo ok || exit 1
