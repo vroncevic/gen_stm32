@@ -84,7 +84,7 @@
  * The Library supports single public header file arm_math.h for
  * Cortex-M4/M3/M0 with LE and BE. Same header file will be used for floating
  * point unit(FPU) variants.
- * Define the appropriate pre processor MACRO ARM_MATH_CM4 or  ARM_MATH_CM3 or
+ * Defines the appropriate pre processor MACRO ARM_MATH_CM4 or  ARM_MATH_CM3 or
  * ARM_MATH_CM0 depending on the target processor in the application.
  * 
  * Fast Math Functions
@@ -182,7 +182,7 @@
     #include "core_cm0.h"
 #else
     #include "ARMCM4.h"
-    #warning "Define either ARM_MATH_CM4 OR ARM_MATH_CM3."
+    #warning "Defines either ARM_MATH_CM4 OR ARM_MATH_CM3."
     #warning "By Default building on ARM_MATH_CM4."
 #endif
 

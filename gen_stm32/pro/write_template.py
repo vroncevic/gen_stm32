@@ -1,126 +1,127 @@
 # -*- coding: UTF-8 -*-
 
 '''
- Module
-     write_template.py
- Copyright
-     Copyright (C) 2018 Vladimir Roncevic <elektron.ronca@gmail.com>
-     gen_stm32 is free software: you can redistribute it and/or modify it
-     under the terms of the GNU General Public License as published by the
-     Free Software Foundation, either version 3 of the License, or
-     (at your option) any later version.
-     gen_stm32 is distributed in the hope that it will be useful, but
-     WITHOUT ANY WARRANTY; without even the implied warranty of
-     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-     See the GNU General Public License for more details.
-     You should have received a copy of the GNU General Public License along
-     with this program. If not, see <http://www.gnu.org/licenses/>.
- Info
-     Define class WriteTemplate with attribute(s) and method(s).
-     Created API for writing template content with parameters.
+Module
+    write_template.py
+Copyright
+    Copyright (C) 2018 - 2024 Vladimir Roncevic <elektron.ronca@gmail.com>
+    gen_stm32 is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published by the
+    Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    gen_stm32 is distributed in the hope that it will be useful, but
+    WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License along
+    with this program. If not, see <http://www.gnu.org/licenses/>.
+Info
+    Defines class WriteTemplate with attribute(s) and method(s).
+    Creates an API for writing source and build modules.
 '''
 
 import sys
+from typing import List, Dict
 from os import getcwd, chmod, makedirs
 from os.path import exists
 from string import Template
 
 try:
-    from ats_utilities.checker import ATSChecker
-    from ats_utilities.config_io.base_check import FileChecking
+    from ats_utilities.config_io.file_check import FileCheck
     from ats_utilities.console_io.verbose import verbose_message
     from ats_utilities.exceptions.ats_type_error import ATSTypeError
-    from ats_utilities.exceptions.ats_bad_call_error import ATSBadCallError
+    from ats_utilities.exceptions.ats_value_error import ATSValueError
 except ImportError as ats_error_message:
-    MESSAGE = '\n{0}\n{1}\n'.format(__file__, ats_error_message)
-    sys.exit(MESSAGE)  # Force close python ATS ##############################
+    # Force close python ATS ##################################################
+    sys.exit(f'\n{__file__}\n{ats_error_message}\n')
 
 __author__ = 'Vladimir Roncevic'
-__copyright__ = 'Copyright 2018, https://vroncevic.github.io/gen_stm32'
-__credits__ = ['Vladimir Roncevic']
+__copyright__ = '(C) 2024, https://vroncevic.github.io/gen_stm32'
+__credits__: List[str] = ['Vladimir Roncevic', 'Python Software Foundation']
 __license__ = 'https://github.com/vroncevic/gen_stm32/blob/dev/LICENSE'
-__version__ = '1.1.1'
+__version__ = '1.2.1'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
 
 
-class WriteTemplate(FileChecking):
+class WriteTemplate(FileCheck):
     '''
-        Define class WriteTemplate with attribute(s) and method(s).
-        Created API for writing template content with parameters.
+        Defines class WriteTemplate with attribute(s) and method(s).
+        Creates an API for writing source and build modules.
+
         It defines:
 
             :attributes:
-                | GEN_VERBOSE - console text indicator for process-phase.
+                | _GEN_VERBOSE - Console text indicator for process-phase.
             :methods:
-                | __init__ - initial constructor.
-                | write - write a templates with parameters.
-                | __str__ - dunder method for WriteTemplate.
+                | __init__ - Initials WriteTemplate constructor.
+                | write - Writes a templates with parameters.
     '''
 
-    GEN_VERBOSE = 'GEN_STM32::PRO::WRITE_TEMPLATE'
+    _GEN_VERBOSE: str = 'GEN_STM32::PRO::WRITE_TEMPLATE'
 
-    def __init__(self, verbose=False):
+    def __init__(self, verbose: bool = False) -> None:
         '''
-            Initial constructor.
+            Initials WriteTemplate constructor.
 
-            :param verbose: enable/disable verbose option.
+            :param verbose: Enable/Disable verbose option
             :type verbose: <bool>
-            :exceptions: ATSTypeError | ATSBadCallError
+            :exceptions: None
         '''
-        FileChecking.__init__(self, verbose=verbose)
-        verbose_message(WriteTemplate.GEN_VERBOSE, verbose, 'init writer')
+        FileCheck.__init__(self, verbose)
+        verbose_message(verbose, [f'{self._GEN_VERBOSE} init writer'])
 
-    def write(self, templates, project_name, verbose=False):
+    def write(
+        self,
+        templates: List[Dict[str, str]],
+        pro_name: str | None,
+        verbose: bool = False
+    ) -> bool:
         '''
-            Write a templates with parameters.
+            Writes a templates with parameters.
 
-            :param templates: parameter templates.
-            :type templates: <list>
-            :param project_name: parameter project name.
-            :type project_name: <str>
-            :param verbose: enable/disable verbose option.
+            :param templates: Templates with params
+            :type templates: <List[Dict[str, str]]>
+            :param pro_name: Project name | None
+            :type pro_name: <str> | <NoneType>
+            :param verbose: Enable/Disable verbose option
             :type verbose: <bool>
-            :return: boolean status, True (success) | False.
+            :return: True (success operation) | False
             :rtype: <bool>
-            :exceptions: ATSTypeError | ATSBadCallError
+            :exceptions: ATSTypeError | ATSValueError
         '''
-        checker, error, status = ATSChecker(), None, False
-        error, status = checker.check_params([
-            ('list:templates', templates), ('str:project_name', project_name)
+        error_msg: str | None = None
+        error_id: int | None = None
+        error_msg, error_id = self.check_params([
+            ('list:templates', templates), ('str:pro_name', pro_name)
         ])
-        if status == ATSChecker.TYPE_ERROR:
-            raise ATSTypeError(error)
-        if status == ATSChecker.VALUE_ERROR:
-            raise ATSBadCallError(error)
-        statuses = []
-        pro_dir = '{0}/{1}/'.format(getcwd(), project_name)
-        build_dir = '{0}{1}/'.format(pro_dir, 'build')
-        build_src_dir = '{0}{1}/'.format(build_dir, 'source')
-        build_inc_dir = '{0}{1}/'.format(
-            build_dir, 'includes/STM32F4xx_StdPeriph_Driver/src'
-        )
-        scripts_dir = '{0}{1}/'.format(pro_dir, 'scripts')
-        source_dir = '{0}{1}/'.format(pro_dir, 'source')
-        includes_dir = '{0}{1}/'.format(pro_dir, 'includes')
-        cmsis_dir = '{0}{1}/'.format(includes_dir, 'CMSIS')
-        stm32f4xx_dir = '{0}{1}/'.format(includes_dir, 'STM32F4xx')
-        stm32f4xx_stdperiph_driver_src_dir = '{0}{1}/'.format(
-            includes_dir, 'STM32F4xx_StdPeriph_Driver/src'
-        )
-        stm32f4xx_stdperiph_driver_inc_dir = '{0}{1}/'.format(
-            includes_dir, 'STM32F4xx_StdPeriph_Driver/inc'
-        )
-        status, expected_num_of_modules = False, len(templates)
-        check_structure = any([
+        if error_id == self.TYPE_ERROR:
+            raise ATSTypeError(error_msg)
+        if not bool(templates):
+            raise ATSValueError('missing templates')
+        all_stat: List[bool] = []
+        pro_dir: str = f'{getcwd()}/{pro_name}/'
+        build_dir: str = f'{pro_dir}build/'
+        build_src_dir: str = f'{build_dir}source/'
+        driver: str = 'STM32F4xx_StdPeriph_Driver'
+        build_inc_dir: str = f'{build_dir}includes/{driver}/src/'
+        scripts_dir: str = f'{pro_dir}scripts/'
+        source_dir: str = f'{pro_dir}source/'
+        includes_dir: str = f'{pro_dir}includes/'
+        cmsis_dir: str = f'{includes_dir}CMSIS/'
+        stm32f4xx_dir: str = f'{includes_dir}STM32F4xx/'
+        stm32f4xx_driver_src_dir: str = f'{includes_dir}{driver}/src/'
+        stm32f4xx_driver_inc_dir: str = f'{includes_dir}{driver}/inc/'
+        num_of_modules: int = len(templates)
+        check_structure: bool = any([
             not exists(pro_dir), not exists(build_dir),
             not exists(build_src_dir), not exists(build_inc_dir),
             not exists(scripts_dir), not exists(source_dir),
             not exists(includes_dir), not exists(cmsis_dir),
             not exists(stm32f4xx_dir),
-            not exists(stm32f4xx_stdperiph_driver_src_dir),
-            not exists(stm32f4xx_stdperiph_driver_inc_dir)
+            not exists(stm32f4xx_driver_src_dir),
+            not exists(stm32f4xx_driver_inc_dir)
         ])
         if check_structure:
             makedirs(pro_dir)
@@ -132,49 +133,33 @@ class WriteTemplate(FileChecking):
             makedirs(includes_dir)
             makedirs(cmsis_dir)
             makedirs(stm32f4xx_dir)
-            makedirs(stm32f4xx_stdperiph_driver_src_dir)
-            makedirs(stm32f4xx_stdperiph_driver_inc_dir)
+            makedirs(stm32f4xx_driver_src_dir)
+            makedirs(stm32f4xx_driver_inc_dir)
         for template_content in templates:
-            module_name = template_content.keys()[0]
-            template = Template(template_content[module_name])
-            module_path = '{0}{1}'.format(pro_dir, module_name)
+            module_name: str = list(template_content.keys())[0]
+            template: Template = Template(template_content[module_name])
+            module_path: str = f'{pro_dir}{module_name}'
             verbose_message(
-                WriteTemplate.GEN_VERBOSE, verbose,
-                'generate module', module_path
+                verbose, [f'{self._GEN_VERBOSE} generate module', module_path]
             )
-            with open(module_path, 'w') as module_file:
-                module_content = template.substitute(
-                    {'PRO': '{0}'.format(project_name)}
+            with open(module_path, 'w', encoding='utf-8') as module_file:
+                module_content: str = template.substitute(
+                    {'PRO': f'{pro_name}'}
                 )
                 module_file.write(module_content)
                 chmod(module_path, 0o666)
-                self.check_path(module_path, verbose=verbose)
-                self.check_mode('w', verbose=verbose)
+                self.check_path(module_path, verbose)
+                self.check_mode('w', verbose)
                 if 'makefile'.capitalize() in module_path:
-                    self.check_format(
-                        module_path, 'makefile', verbose=verbose
-                    )
+                    self.check_format(module_path, 'makefile', verbose)
                 else:
                     self.check_format(
-                        module_path, module_path.split('.')[1],
-                        verbose=verbose
+                        module_path, module_path.split('.')[1], verbose
                     )
                 if self.is_file_ok():
-                    statuses.append(True)
+                    all_stat.append(True)
                 else:
-                    statuses.append(False)
-        if all(statuses) and len(statuses) == expected_num_of_modules:
-            status = True
-        return status
-
-    def __str__(self):
-        '''
-            Dunder method for WriteTemplate.
-
-            :return: object in a human-readable format.
-            :rtype: <str>
-            :exceptions: None
-        '''
-        return '{0} ({1})'.format(
-            self.__class__.__name__, FileChecking.__str__(self)
-        )
+                    all_stat.append(False)
+        return all([
+            bool(all_stat), all(all_stat), len(all_stat) == num_of_modules
+        ])

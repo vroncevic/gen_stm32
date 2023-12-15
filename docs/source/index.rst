@@ -9,19 +9,22 @@ The README is used to introduce the tool and provide instructions on
 how to install the tool, any machine dependencies it may have and any
 other information that should be provided before the tool is installed.
 
-|Python package| |GitHub issues| |Documentation Status| |GitHub contributors|
+|gen_stm32 python checker| |gen_stm32 python package| |github issues| |documentation status| |github contributors|
 
-.. |Python package| image:: https://github.com/vroncevic/gen_stm32/workflows/Python%20package/badge.svg
-   :target: https://github.com/vroncevic/gen_stm32/workflows/Python%20package/badge.svg?branch=master
+.. |gen_stm32 python checker| image:: https://github.com/vroncevic/gen_stm32/actions/workflows/gen_stm32_python_checker.yml/badge.svg
+   :target: https://github.com/vroncevic/gen_stm32/actions/workflows/gen_stm32_python_checker.yml
 
-.. |GitHub issues| image:: https://img.shields.io/github/issues/vroncevic/gen_stm32.svg
+.. |gen_stm32 python package| image:: https://github.com/vroncevic/gen_stm32/actions/workflows/gen_stm32_package_checker.yml/badge.svg
+   :target: https://github.com/vroncevic/gen_stm32/actions/workflows/gen_stm32_package.yml
+
+.. |github issues| image:: https://img.shields.io/github/issues/vroncevic/gen_stm32.svg
    :target: https://github.com/vroncevic/gen_stm32/issues
 
-.. |GitHub contributors| image:: https://img.shields.io/github/contributors/vroncevic/gen_stm32.svg
+.. |github contributors| image:: https://img.shields.io/github/contributors/vroncevic/gen_stm32.svg
    :target: https://github.com/vroncevic/gen_stm32/graphs/contributors
 
-.. |Documentation Status| image:: https://readthedocs.org/projects/gen_stm32/badge/?version=latest
-   :target: https://gen_stm32.readthedocs.io/projects/gen_stm32/en/latest/?badge=latest
+.. |documentation status| image:: https://readthedocs.org/projects/gen-avr8/badge/?version=latest
+   :target: https://gen-avr8.readthedocs.io/en/latest/?badge=latest
 
 .. toctree::
    :maxdepth: 4
@@ -33,13 +36,10 @@ other information that should be provided before the tool is installed.
 Installation
 -------------
 
-|Install Python2 Package| |Install Python3 Package|
+|gen_stm32 python3 build|
 
-.. |Install Python2 Package| image:: https://github.com/vroncevic/gen_stm32/workflows/Install%20Python2%20Package%20gen_stm32/badge.svg
-   :target: https://github.com/vroncevic/gen_stm32/workflows/Install%20Python2%20Package%20gen_stm32/badge.svg?branch=master
-
-.. |Install Python3 Package| image:: https://github.com/vroncevic/gen_stm32/workflows/Install%20Python3%20Package%20gen_stm32/badge.svg
-   :target: https://github.com/vroncevic/gen_stm32/workflows/Install%20Python3%20Package%20gen_stm32/badge.svg?branch=master
+.. |gen_stm32 python3 build| image:: https://github.com/vroncevic/gen_stm32/actions/workflows/gen_stm32_python3_build.yml/badge.svg
+   :target: https://github.com/vroncevic/gen_stm32/actions/workflows/gen_stm32_python3_build.yml
 
 Navigate to release `page`_ download and extract release archive.
 
@@ -51,30 +51,26 @@ To install **gen_stm32** type the following
 
     tar xvzf gen_stm32-x.y.z.tar.gz
     cd gen_stm32-x.y.z/
-    # python2
-    pip install -r requirements.txt
-    python setup.py install_lib
-    python setup.py install_data
-    python setup.py install_egg_info
-    # pyton3
+    # python3
+    wget https://bootstrap.pypa.io/get-pip.py
+    python3 get-pip.py 
+    python3 -m pip install --upgrade setuptools
+    python3 -m pip install --upgrade pip
+    python3 -m pip install --upgrade build
     pip3 install -r requirements.txt
-    python3 setup.py install_lib
-    python3 setup.py install_data
-    python3 setup.py install_egg_info
+    python3 -m build --no-isolation --wheel
+    pip3 install ./dist/gen_stm32-*-py3-none-any.whl
+    rm -f get-pip.py
+    chmod 755 /usr/local/lib/python3.10/dist-packages/usr/local/bin/gen_stm32_run.py
+    ln -s /usr/local/lib/python3.10/dist-packages/usr/local/bin/gen_stm32_run.py /usr/local/bin/gen_stm32_run.py
 
 You can use Docker to create image/container, or You can use pip to install
 
 .. code-block:: bash
 
-    # pyton2
-    pip install gen-stm32
     # pyton3
     pip3 install gen-stm32
 
-|GitHub docker checker|
-
-.. |GitHub docker checker| image:: https://github.com/vroncevic/gen_stm32/workflows/gen_stm32%20docker%20checker/badge.svg
-   :target: https://github.com/vroncevic/gen_stm32/actions?query=workflow%3A%22gen_stm32+docker+checker%22
 
 Dependencies
 -------------
@@ -83,136 +79,125 @@ Dependencies
 
 * `ats-utilities - Python App/Tool/Script Utilities <https://pypi.org/project/ats-utilities/>`_
 
-Generation flow of project setup
----------------------------------
-
-Base flow of generation process
-
-.. image:: https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/docs/python_setup_flow.png
-
 Tool structure
 ---------------
 
-**gen_stm32** is based on Template mechanism
-
-.. image:: https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/docs/python_setup.png
+**gen_stm32** is based on OOP.
 
 Code structure:
 
 .. code-block:: bash
 
     gen_stm32/
-    ├── conf/
-    │   ├── gen_stm32.logo
-    │   ├── gen_stm32.cfg
-    │   ├── gen_stm32_util.cfg
-    │   ├── project.yaml
-    │   └── template/
-    │       ├── build/
-    │       │   ├── includes/
-    │       │   │   └── STM32F4xx_StdPeriph_Driver/
-    │       │   │       └── src/
-    │       │   │           └── subdir.template
-    │       │   ├── Makefile.template
-    │       │   ├── objects.template
-    │       │   ├── source/
-    │       │   │   └── subdir.template
-    │       │   └── sources.template
-    │       ├── includes/
-    │       │   ├── CMSIS/
-    │       │   │   ├── arm_common_tables.template
-    │       │   │   ├── arm_math.template
-    │       │   │   ├── core_cm0.template
-    │       │   │   ├── core_cm3.template
-    │       │   │   ├── core_cm4_simd.template
-    │       │   │   ├── core_cm4.template
-    │       │   │   ├── core_cmFunc.template
-    │       │   │   └── core_cmInstr.template
-    │       │   ├── STM32F4xx/
-    │       │   │   ├── stm32f4xx_conf.template
-    │       │   │   ├── stm32f4xx.template
-    │       │   │   └── system_stm32f4xx.template
-    │       │   └── STM32F4xx_StdPeriph_Driver/
-    │       │       ├── inc/
-    │       │       │   ├── misc.template
-    │       │       │   ├── stm32f4xx_adc.template
-    │       │       │   ├── stm32f4xx_can.template
-    │       │       │   ├── stm32f4xx_crc.template
-    │       │       │   ├── stm32f4xx_cryp.template
-    │       │       │   ├── stm32f4xx_dac.template
-    │       │       │   ├── stm32f4xx_dbgmcu.template
-    │       │       │   ├── stm32f4xx_dcmi.template
-    │       │       │   ├── stm32f4xx_dma.template
-    │       │       │   ├── stm32f4xx_exti.template
-    │       │       │   ├── stm32f4xx_flash.template
-    │       │       │   ├── stm32f4xx_fsmc.template
-    │       │       │   ├── stm32f4xx_gpio.template
-    │       │       │   ├── stm32f4xx_hash.template
-    │       │       │   ├── stm32f4xx_i2c.template
-    │       │       │   ├── stm32f4xx_iwdg.template
-    │       │       │   ├── stm32f4xx_pwr.template
-    │       │       │   ├── stm32f4xx_rcc.template
-    │       │       │   ├── stm32f4xx_rng.template
-    │       │       │   ├── stm32f4xx_rtc.template
-    │       │       │   ├── stm32f4xx_sdio.template
-    │       │       │   ├── stm32f4xx_spi.template
-    │       │       │   ├── stm32f4xx_syscfg.template
-    │       │       │   ├── stm32f4xx_tim.template
-    │       │       │   ├── stm32f4xx_usart.template
-    │       │       │   └── stm32f4xx_wwdg.template
-    │       │       └── src/
-    │       │           ├── misc.template
-    │       │           ├── stm32f4xx_adc.template
-    │       │           ├── stm32f4xx_can.template
-    │       │           ├── stm32f4xx_crc.template
-    │       │           ├── stm32f4xx_cryp_aes.template
-    │       │           ├── stm32f4xx_cryp_des.template
-    │       │           ├── stm32f4xx_cryp_tdes.template
-    │       │           ├── stm32f4xx_cryp.template
-    │       │           ├── stm32f4xx_dac.template
-    │       │           ├── stm32f4xx_dbgmcu.template
-    │       │           ├── stm32f4xx_dcmi.template
-    │       │           ├── stm32f4xx_dma.template
-    │       │           ├── stm32f4xx_exti.template
-    │       │           ├── stm32f4xx_flash.template
-    │       │           ├── stm32f4xx_fsmc.template
-    │       │           ├── stm32f4xx_gpio.template
-    │       │           ├── stm32f4xx_hash_md5.template
-    │       │           ├── stm32f4xx_hash_sha1.template
-    │       │           ├── stm32f4xx_hash.template
-    │       │           ├── stm32f4xx_i2c.template
-    │       │           ├── stm32f4xx_iwdg.template
-    │       │           ├── stm32f4xx_pwr.template
-    │       │           ├── stm32f4xx_rcc.template
-    │       │           ├── stm32f4xx_rng.template
-    │       │           ├── stm32f4xx_rtc.template
-    │       │           ├── stm32f4xx_sdio.template
-    │       │           ├── stm32f4xx_spi.template
-    │       │           ├── stm32f4xx_syscfg.template
-    │       │           ├── stm32f4xx_tim.template
-    │       │           ├── stm32f4xx_usart.template
-    │       │           └── stm32f4xx_wwdg.template
-    │       ├── scripts/
-    │       │   └── arm_cortex_m4_512.template
-    │       └── source/
-    │           ├── main.template
-    │           ├── startup_stm32f4xx.template
-    │           ├── syscall.template
-    │           ├── system_stm32f4xx.template
-    │           └── tinynew.template
-    ├── __init__.py
-    ├── log/
-    │   └── gen_stm32.log
-    ├── pro/
-    │   ├── config
-    │   │   ├── __init__.py
-    │   │   ├── pro_name.py
-    │   │   └── template_dir.py
-    │   ├── __init__.py
-    │   ├── read_template.py
-    │   └── write_template.py
-    └── run/
-        └── gen_stm32_run.py
+        ├── conf/
+        │   ├── gen_stm32.logo
+        │   ├── gen_stm32.cfg
+        │   ├── gen_stm32_util.cfg
+        │   ├── project.yaml
+        │   └── template/
+        │       ├── build/
+        │       │   ├── includes/
+        │       │   │   └── STM32F4xx_StdPeriph_Driver/
+        │       │   │       └── src/
+        │       │   │           └── subdir.template
+        │       │   ├── Makefile.template
+        │       │   ├── objects.template
+        │       │   ├── source/
+        │       │   │   └── subdir.template
+        │       │   └── sources.template
+        │       ├── includes/
+        │       │   ├── CMSIS/
+        │       │   │   ├── arm_common_tables.template
+        │       │   │   ├── arm_math.template
+        │       │   │   ├── core_cm0.template
+        │       │   │   ├── core_cm3.template
+        │       │   │   ├── core_cm4_simd.template
+        │       │   │   ├── core_cm4.template
+        │       │   │   ├── core_cmFunc.template
+        │       │   │   └── core_cmInstr.template
+        │       │   ├── STM32F4xx/
+        │       │   │   ├── stm32f4xx_conf.template
+        │       │   │   ├── stm32f4xx.template
+        │       │   │   └── system_stm32f4xx.template
+        │       │   └── STM32F4xx_StdPeriph_Driver/
+        │       │       ├── inc/
+        │       │       │   ├── misc.template
+        │       │       │   ├── stm32f4xx_adc.template
+        │       │       │   ├── stm32f4xx_can.template
+        │       │       │   ├── stm32f4xx_crc.template
+        │       │       │   ├── stm32f4xx_cryp.template
+        │       │       │   ├── stm32f4xx_dac.template
+        │       │       │   ├── stm32f4xx_dbgmcu.template
+        │       │       │   ├── stm32f4xx_dcmi.template
+        │       │       │   ├── stm32f4xx_dma.template
+        │       │       │   ├── stm32f4xx_exti.template
+        │       │       │   ├── stm32f4xx_flash.template
+        │       │       │   ├── stm32f4xx_fsmc.template
+        │       │       │   ├── stm32f4xx_gpio.template
+        │       │       │   ├── stm32f4xx_hash.template
+        │       │       │   ├── stm32f4xx_i2c.template
+        │       │       │   ├── stm32f4xx_iwdg.template
+        │       │       │   ├── stm32f4xx_pwr.template
+        │       │       │   ├── stm32f4xx_rcc.template
+        │       │       │   ├── stm32f4xx_rng.template
+        │       │       │   ├── stm32f4xx_rtc.template
+        │       │       │   ├── stm32f4xx_sdio.template
+        │       │       │   ├── stm32f4xx_spi.template
+        │       │       │   ├── stm32f4xx_syscfg.template
+        │       │       │   ├── stm32f4xx_tim.template
+        │       │       │   ├── stm32f4xx_usart.template
+        │       │       │   └── stm32f4xx_wwdg.template
+        │       │       └── src/
+        │       │           ├── misc.template
+        │       │           ├── stm32f4xx_adc.template
+        │       │           ├── stm32f4xx_can.template
+        │       │           ├── stm32f4xx_crc.template
+        │       │           ├── stm32f4xx_cryp_aes.template
+        │       │           ├── stm32f4xx_cryp_des.template
+        │       │           ├── stm32f4xx_cryp_tdes.template
+        │       │           ├── stm32f4xx_cryp.template
+        │       │           ├── stm32f4xx_dac.template
+        │       │           ├── stm32f4xx_dbgmcu.template
+        │       │           ├── stm32f4xx_dcmi.template
+        │       │           ├── stm32f4xx_dma.template
+        │       │           ├── stm32f4xx_exti.template
+        │       │           ├── stm32f4xx_flash.template
+        │       │           ├── stm32f4xx_fsmc.template
+        │       │           ├── stm32f4xx_gpio.template
+        │       │           ├── stm32f4xx_hash_md5.template
+        │       │           ├── stm32f4xx_hash_sha1.template
+        │       │           ├── stm32f4xx_hash.template
+        │       │           ├── stm32f4xx_i2c.template
+        │       │           ├── stm32f4xx_iwdg.template
+        │       │           ├── stm32f4xx_pwr.template
+        │       │           ├── stm32f4xx_rcc.template
+        │       │           ├── stm32f4xx_rng.template
+        │       │           ├── stm32f4xx_rtc.template
+        │       │           ├── stm32f4xx_sdio.template
+        │       │           ├── stm32f4xx_spi.template
+        │       │           ├── stm32f4xx_syscfg.template
+        │       │           ├── stm32f4xx_tim.template
+        │       │           ├── stm32f4xx_usart.template
+        │       │           └── stm32f4xx_wwdg.template
+        │       ├── scripts/
+        │       │   └── arm_cortex_m4_512.template
+        │       └── source/
+        │           ├── main.template
+        │           ├── startup_stm32f4xx.template
+        │           ├── syscall.template
+        │           ├── system_stm32f4xx.template
+        │           └── tinynew.template
+        ├── __init__.py
+        ├── log/
+        │   └── gen_stm32.log
+        ├── pro/
+        │   ├── __init__.py
+        │   ├── read_template.py
+        │   └── write_template.py
+        └── run/
+            └── gen_stm32_run.py
+
+    19 directories, 89 files
 
 Copyright and licence
 -----------------------
@@ -225,23 +210,23 @@ Copyright and licence
 .. |License: Apache 2.0| image:: https://img.shields.io/badge/License-Apache%202.0-blue.svg
    :target: https://opensource.org/licenses/Apache-2.0
 
-Copyright (C) 2018 by `vroncevic.github.io/gen_stm32 <https://vroncevic.github.io/gen_stm32>`_
+Copyright (C) 2018 - 2024 by `vroncevic.github.io/gen_stm32 <https://vroncevic.github.io/gen_stm32>`_
 
 **gen_stm32** is free software; you can redistribute it and/or modify
-it under the same terms as Python itself, either Python version 2.x/3.x or,
+it under the same terms as Python itself, either Python version 3.x or,
 at your option, any later version of Python 3 you may have available.
 
 Lets help and support PSF.
 
-|Python Software Foundation|
+|python software foundation|
 
-.. |Python Software Foundation| image:: https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/docs/psf-logo-alpha.png
+.. |python software foundation| image:: https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/docs/psf-logo-alpha.png
    :target: https://www.python.org/psf/
 
-|Donate|
+|donate|
 
-.. |Donate| image:: https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif
-   :target: https://psfmember.org/index.php?q=civicrm/contribute/transact&reset=1&id=2
+.. |donate| image:: https://www.paypalobjects.com/en_us/i/btn/btn_donatecc_lg.gif
+   :target: https://www.python.org/psf/donations/
 
 Indices and tables
 ------------------
