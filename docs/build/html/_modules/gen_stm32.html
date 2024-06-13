@@ -1,20 +1,16 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>gen_stm32 &#8212; gen_stm32 https://github.com/vroncevic/gen_stm32/releases documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/classic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=514cf933" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=39418e35"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -59,12 +55,13 @@
 <span class="sd">    with this program. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
 <span class="sd">Info</span>
 <span class="sd">    Defines class GenSTM32 with attribute(s) and method(s).</span>
-<span class="sd">    Loads a base info, creates an CLI interface and runs operations.</span>
+<span class="sd">    Loads a base info, creates a CLI interface and runs operations.</span>
 <span class="sd">&#39;&#39;&#39;</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span>
 <span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">exists</span><span class="p">,</span> <span class="n">dirname</span><span class="p">,</span> <span class="n">realpath</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
 <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">Namespace</span>
 
 <span class="k">try</span><span class="p">:</span>
@@ -74,6 +71,8 @@
     <span class="kn">from</span> <span class="nn">ats_utilities.console_io.error</span> <span class="kn">import</span> <span class="n">error_message</span>
     <span class="kn">from</span> <span class="nn">ats_utilities.console_io.verbose</span> <span class="kn">import</span> <span class="n">verbose_message</span>
     <span class="kn">from</span> <span class="nn">ats_utilities.console_io.success</span> <span class="kn">import</span> <span class="n">success_message</span>
+    <span class="kn">from</span> <span class="nn">ats_utilities.exceptions.ats_type_error</span> <span class="kn">import</span> <span class="n">ATSTypeError</span>
+    <span class="kn">from</span> <span class="nn">ats_utilities.exceptions.ats_value_error</span> <span class="kn">import</span> <span class="n">ATSValueError</span>
     <span class="kn">from</span> <span class="nn">gen_stm32.pro</span> <span class="kn">import</span> <span class="n">STM32Setup</span>
 <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">ats_error_message</span><span class="p">:</span>
     <span class="c1"># Force close python ATS ##################################################</span>
@@ -83,16 +82,18 @@
 <span class="n">__copyright__</span> <span class="o">=</span> <span class="s1">&#39;(C) 2024, https://vroncevic.github.io/gen_stm32&#39;</span>
 <span class="n">__credits__</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Vladimir Roncevic&#39;</span><span class="p">,</span> <span class="s1">&#39;Python Software Foundation&#39;</span><span class="p">]</span>
 <span class="n">__license__</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/vroncevic/gen_stm32/blob/dev/LICENSE&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;1.2.1&#39;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;1.2.2&#39;</span>
 <span class="n">__maintainer__</span> <span class="o">=</span> <span class="s1">&#39;Vladimir Roncevic&#39;</span>
 <span class="n">__email__</span> <span class="o">=</span> <span class="s1">&#39;elektron.ronca@gmail.com&#39;</span>
 <span class="n">__status__</span> <span class="o">=</span> <span class="s1">&#39;Updated&#39;</span>
 
 
-<div class="viewcode-block" id="GenSTM32"><a class="viewcode-back" href="../gen_stm32.html#gen_stm32.GenSTM32">[docs]</a><span class="k">class</span> <span class="nc">GenSTM32</span><span class="p">(</span><span class="n">CfgCLI</span><span class="p">):</span>
+<div class="viewcode-block" id="GenSTM32">
+<a class="viewcode-back" href="../gen_stm32.html#gen_stm32.GenSTM32">[docs]</a>
+<span class="k">class</span> <span class="nc">GenSTM32</span><span class="p">(</span><span class="n">CfgCLI</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Defines class GenSTM32 with attribute(s) and method(s).</span>
-<span class="sd">        Loads a base info, creates an CLI interface and runs operations.</span>
+<span class="sd">        Loads a base info, creates a CLI interface and runs operations.</span>
 
 <span class="sd">        It defines:</span>
 
@@ -108,11 +109,11 @@
 <span class="sd">                | process - Processes and runs tool options.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
 
-    <span class="n">_GEN_VERBOSE</span> <span class="o">=</span> <span class="s1">&#39;GEN_STM32&#39;</span>
-    <span class="n">_CONFIG</span> <span class="o">=</span> <span class="s1">&#39;/conf/gen_stm32.cfg&#39;</span>
-    <span class="n">_LOG</span> <span class="o">=</span> <span class="s1">&#39;/log/gen_stm32.log&#39;</span>
-    <span class="n">_LOGO</span> <span class="o">=</span> <span class="s1">&#39;/conf/gen_stm32.logo&#39;</span>
-    <span class="n">_OPS</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-g&#39;</span><span class="p">,</span> <span class="s1">&#39;--gen&#39;</span><span class="p">,</span> <span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="s1">&#39;--verbose&#39;</span><span class="p">,</span> <span class="s1">&#39;--version&#39;</span><span class="p">]</span>
+    <span class="n">_GEN_VERBOSE</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;GEN_STM32&#39;</span>
+    <span class="n">_CONFIG</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;/conf/gen_stm32.cfg&#39;</span>
+    <span class="n">_LOG</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;/log/gen_stm32.log&#39;</span>
+    <span class="n">_LOGO</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;/conf/gen_stm32.logo&#39;</span>
+    <span class="n">_OPS</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;--name&#39;</span><span class="p">,</span> <span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="s1">&#39;--verbose&#39;</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
@@ -139,19 +140,18 @@
         <span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tool_operational</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">add_new_option</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_OPS</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_OPS</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;gen&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;generate project&#39;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_OPS</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_OPS</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">,</span>
+                <span class="n">help</span><span class="o">=</span><span class="s1">&#39;generate STM32 project skeleton&#39;</span>
             <span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">add_new_option</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_OPS</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_OPS</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
                 <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                 <span class="n">help</span><span class="o">=</span><span class="s1">&#39;activate verbose mode for generation&#39;</span>
             <span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">add_new_option</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_OPS</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;version&#39;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="n">__version__</span>
-            <span class="p">)</span>
 
-<div class="viewcode-block" id="GenSTM32.process"><a class="viewcode-back" href="../gen_stm32.html#gen_stm32.GenSTM32.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<div class="viewcode-block" id="GenSTM32.process">
+<a class="viewcode-back" href="../gen_stm32.html#gen_stm32.GenSTM32.process">[docs]</a>
+    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">            Processes and runs operations.</span>
 
@@ -163,71 +163,61 @@
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="n">status</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tool_operational</span><span class="p">:</span>
-            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">4</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_OPS</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">args</span><span class="p">:</span> <span class="n">Any</span> <span class="o">|</span> <span class="n">Namespace</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">)):</span>
                     <span class="n">error_message</span><span class="p">(</span>
-                        <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_GEN_VERBOSE</span><span class="si">}</span><span class="s1"> provide project name&#39;</span><span class="p">]</span>
-                    <span class="p">)</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">write_log</span><span class="p">(</span>
-                        <span class="s1">&#39;provide project name&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">ATS_ERROR</span>
+                        <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_GEN_VERBOSE</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s1"> missing name argument&#39;</span><span class="p">]</span>
                     <span class="p">)</span>
                     <span class="k">return</span> <span class="n">status</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">error_message</span><span class="p">(</span>
-                    <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_GEN_VERBOSE</span><span class="si">}</span><span class="s1"> provide project name&#39;</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">exists</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">getcwd</span><span class="p">()</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">args</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;name&quot;</span><span class="p">))</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">):</span>
+                    <span class="n">error_message</span><span class="p">([</span>
+                        <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_GEN_VERBOSE</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                        <span class="sa">f</span><span class="s1">&#39;project with name [</span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">args</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;name&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">] exists&#39;</span>
+                    <span class="p">])</span>
+                    <span class="k">return</span> <span class="n">status</span>
+                <span class="n">generator</span><span class="p">:</span> <span class="n">STM32Setup</span> <span class="o">=</span> <span class="n">STM32Setup</span><span class="p">(</span>
+                    <span class="nb">getattr</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="s1">&#39;verbose&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">verbose</span>
                 <span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">write_log</span><span class="p">(</span>
-                    <span class="s1">&#39;provide project name&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">ATS_ERROR</span>
-                <span class="p">)</span>
-                <span class="k">return</span> <span class="n">status</span>
-            <span class="n">args</span><span class="p">:</span> <span class="n">Any</span> <span class="o">|</span> <span class="n">Namespace</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">exists</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="s1">&#39;gen&#39;</span><span class="p">)):</span>
-                <span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="s1">&#39;gen&#39;</span><span class="p">)):</span>
+                <span class="k">try</span><span class="p">:</span>
                     <span class="nb">print</span><span class="p">(</span>
                         <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
                             <span class="sa">f</span><span class="s1">&#39;[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_GEN_VERBOSE</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s1">]&#39;</span><span class="p">,</span>
-                            <span class="s1">&#39;gen STM32 project skeleton&#39;</span><span class="p">,</span>
-                            <span class="nb">str</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="s1">&#39;gen&#39;</span><span class="p">))</span>
+                            <span class="s1">&#39;generate STM32 project skeleton&#39;</span><span class="p">,</span>
+                            <span class="nb">str</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">))</span>
                         <span class="p">])</span>
                     <span class="p">)</span>
-                    <span class="n">generator</span><span class="p">:</span> <span class="n">STM32Setup</span> <span class="o">=</span> <span class="n">STM32Setup</span><span class="p">(</span>
-                        <span class="nb">getattr</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="s1">&#39;verbose&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">verbose</span>
-                    <span class="p">)</span>
                     <span class="n">status</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">generator</span><span class="o">.</span><span class="n">gen_pro_setup</span><span class="p">(</span>
-                        <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">args</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;gen&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                        <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">args</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;name&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
                         <span class="nb">getattr</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="s1">&#39;verbose&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">verbose</span>
                     <span class="p">)</span>
-                    <span class="k">if</span> <span class="n">status</span><span class="p">:</span>
-                        <span class="n">success_message</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_GEN_VERBOSE</span><span class="si">}</span><span class="s1"> done</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">])</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">write_log</span><span class="p">(</span>
-                            <span class="sa">f</span><span class="s1">&#39;gen project STM32 </span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">args</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;gen&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1"> done&#39;</span><span class="p">,</span>
-                            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">ATS_INFO</span>
-                        <span class="p">)</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="n">error_message</span><span class="p">(</span>
-                            <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_GEN_VERBOSE</span><span class="si">}</span><span class="s1"> generation failed&#39;</span><span class="p">]</span>
-                        <span class="p">)</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">write_log</span><span class="p">(</span>
-                            <span class="s1">&#39;generation failed&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">ATS_ERROR</span>
-                        <span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">error_message</span><span class="p">(</span>
-                        <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_GEN_VERBOSE</span><span class="si">}</span><span class="s1"> provide project name&#39;</span><span class="p">]</span>
-                    <span class="p">)</span>
+                <span class="k">except</span> <span class="p">(</span><span class="n">ATSTypeError</span><span class="p">,</span> <span class="n">ATSValueError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="n">error_message</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_GEN_VERBOSE</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">])</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">write_log</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">ATS_ERROR</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">status</span><span class="p">:</span>
+                    <span class="n">success_message</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_GEN_VERBOSE</span><span class="si">}</span><span class="s1"> done</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">])</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">write_log</span><span class="p">(</span>
-                        <span class="s1">&#39;provide project name&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">ATS_ERROR</span>
+                        <span class="sa">f</span><span class="s1">&#39;generation project </span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">args</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;name&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1"> done&#39;</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">ATS_INFO</span>
                     <span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">error_message</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_GEN_VERBOSE</span><span class="si">}</span><span class="s1"> project already exist&#39;</span><span class="p">])</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">write_log</span><span class="p">(</span>
-                    <span class="s1">&#39;project already exist&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">ATS_ERROR</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">error_message</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_GEN_VERBOSE</span><span class="si">}</span><span class="s1"> failed&#39;</span><span class="p">])</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">write_log</span><span class="p">(</span>
+                        <span class="s1">&#39;generation failed&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">ATS_ERROR</span>
+                    <span class="p">)</span>
+            <span class="k">except</span> <span class="ne">SystemExit</span><span class="p">:</span>
+                <span class="n">error_message</span><span class="p">(</span>
+                    <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_GEN_VERBOSE</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s1"> expected argument -n&#39;</span><span class="p">]</span>
                 <span class="p">)</span>
+                <span class="k">return</span> <span class="n">status</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">error_message</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_GEN_VERBOSE</span><span class="si">}</span><span class="s1"> tool is not operational&#39;</span><span class="p">])</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">write_log</span><span class="p">(</span>
                 <span class="s1">&#39;tool is not operational&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">ATS_ERROR</span>
             <span class="p">)</span>
-        <span class="k">return</span> <span class="n">status</span></div></div>
+        <span class="k">return</span> <span class="n">status</span></div>
+</div>
+
 </pre></div>
 
             <div class="clearer"></div>
@@ -265,8 +255,8 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Vladimir Roncevic &lt;elektron.ronca@gmail.com&gt;.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    &#169; Copyright 2024, Vladimir Roncevic &lt;elektron.ronca@gmail.com&gt;.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>
 </html>

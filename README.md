@@ -1,6 +1,6 @@
-<img align="right" src="https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/docs/gen_stm32_logo.png" width="25%">
-
 # STM32 project skeleton generator
+
+<img align="right" src="https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/docs/gen_stm32_logo.png" width="25%">
 
 **gen_stm32** is toolset for generation STM32 project skeleton for
 development of embedded applications.

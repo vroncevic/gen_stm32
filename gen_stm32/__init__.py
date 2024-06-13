@@ -17,12 +17,13 @@ Copyright
     with this program. If not, see <http://www.gnu.org/licenses/>.
 Info
     Defines class GenSTM32 with attribute(s) and method(s).
-    Loads a base info, creates an CLI interface and runs operations.
+    Loads a base info, creates a CLI interface and runs operations.
 '''
 
 import sys
 from typing import Any, List, Dict
 from os.path import exists, dirname, realpath
+from os import getcwd
 from argparse import Namespace
 
 try:
@@ -32,6 +33,8 @@ try:
     from ats_utilities.console_io.error import error_message
     from ats_utilities.console_io.verbose import verbose_message
     from ats_utilities.console_io.success import success_message
+    from ats_utilities.exceptions.ats_type_error import ATSTypeError
+    from ats_utilities.exceptions.ats_value_error import ATSValueError
     from gen_stm32.pro import STM32Setup
 except ImportError as ats_error_message:
     # Force close python ATS ##################################################
@@ -41,7 +44,7 @@ __author__ = 'Vladimir Roncevic'
 __copyright__ = '(C) 2024, https://vroncevic.github.io/gen_stm32'
 __credits__: List[str] = ['Vladimir Roncevic', 'Python Software Foundation']
 __license__ = 'https://github.com/vroncevic/gen_stm32/blob/dev/LICENSE'
-__version__ = '1.2.1'
+__version__ = '1.2.2'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
@@ -50,7 +53,7 @@ __status__ = 'Updated'
 class GenSTM32(CfgCLI):
     '''
         Defines class GenSTM32 with attribute(s) and method(s).
-        Loads a base info, creates an CLI interface and runs operations.
+        Loads a base info, creates a CLI interface and runs operations.
 
         It defines:
 
@@ -66,11 +69,11 @@ class GenSTM32(CfgCLI):
                 | process - Processes and runs tool options.
     '''
 
-    _GEN_VERBOSE = 'GEN_STM32'
-    _CONFIG = '/conf/gen_stm32.cfg'
-    _LOG = '/log/gen_stm32.log'
-    _LOGO = '/conf/gen_stm32.logo'
-    _OPS: List[str] = ['-g', '--gen', '-v', '--verbose', '--version']
+    _GEN_VERBOSE: str = 'GEN_STM32'
+    _CONFIG: str = '/conf/gen_stm32.cfg'
+    _LOG: str = '/log/gen_stm32.log'
+    _LOGO: str = '/conf/gen_stm32.logo'
+    _OPS: List[str] = ['-n', '--name', '-v', '--verbose']
 
     def __init__(self, verbose: bool = False) -> None:
         '''
@@ -97,16 +100,13 @@ class GenSTM32(CfgCLI):
         )
         if self.tool_operational:
             self.add_new_option(
-                self._OPS[0], self._OPS[1],
-                dest='gen', help='generate project'
+                self._OPS[0], self._OPS[1], dest='name',
+                help='generate STM32 project skeleton'
             )
             self.add_new_option(
                 self._OPS[2], self._OPS[3],
                 action='store_true', default=False,
                 help='activate verbose mode for generation'
-            )
-            self.add_new_option(
-                self._OPS[4], action='version', version=__version__
             )
 
     def process(self, verbose: bool = False) -> bool:
@@ -121,65 +121,53 @@ class GenSTM32(CfgCLI):
         '''
         status = False
         if self.tool_operational:
-            if len(sys.argv) >= 4:
-                if sys.argv[2] not in self._OPS:
+            try:
+                args: Any | Namespace = self.parse_args(sys.argv)
+                if not bool(getattr(args, "name")):
                     error_message(
-                        [f'{self._GEN_VERBOSE} provide project name']
-                    )
-                    self._logger.write_log(
-                        'provide project name', self._logger.ATS_ERROR
+                        [f'{self._GEN_VERBOSE.lower()} missing name argument']
                     )
                     return status
-            else:
-                error_message(
-                    [f'{self._GEN_VERBOSE} provide project name']
+                if exists(f'{getcwd()}/{str(getattr(args, "name"))}'):
+                    error_message([
+                        f'{self._GEN_VERBOSE.lower()}',
+                        f'project with name [{getattr(args, "name")}] exists'
+                    ])
+                    return status
+                generator: STM32Setup = STM32Setup(
+                    getattr(args, 'verbose') or verbose
                 )
-                self._logger.write_log(
-                    'provide project name', self._logger.ATS_ERROR
-                )
-                return status
-            args: Any | Namespace = self.parse_args(sys.argv[2:])
-            if not exists(getattr(args, 'gen')):
-                if bool(getattr(args, 'gen')):
+                try:
                     print(
                         " ".join([
                             f'[{self._GEN_VERBOSE.lower()}]',
-                            'gen STM32 project skeleton',
-                            str(getattr(args, 'gen'))
+                            'generate STM32 project skeleton',
+                            str(getattr(args, 'name'))
                         ])
                     )
-                    generator: STM32Setup = STM32Setup(
-                        getattr(args, 'verbose') or verbose
-                    )
                     status: bool = generator.gen_pro_setup(
-                        f'{getattr(args, "gen")}',
+                        f'{getattr(args, "name")}',
                         getattr(args, 'verbose') or verbose
                     )
-                    if status:
-                        success_message([f'{self._GEN_VERBOSE} done\n'])
-                        self._logger.write_log(
-                            f'gen project STM32 {getattr(args, "gen")} done',
-                            self._logger.ATS_INFO
-                        )
-                    else:
-                        error_message(
-                            [f'{self._GEN_VERBOSE} generation failed']
-                        )
-                        self._logger.write_log(
-                            'generation failed', self._logger.ATS_ERROR
-                        )
-                else:
-                    error_message(
-                        [f'{self._GEN_VERBOSE} provide project name']
-                    )
+                except (ATSTypeError, ATSValueError) as e:
+                    error_message([f'{self._GEN_VERBOSE.lower()} {str(e)}'])
+                    self._logger.write_log(f'{str(e)}', self._logger.ATS_ERROR)
+                if status:
+                    success_message([f'{self._GEN_VERBOSE} done\n'])
                     self._logger.write_log(
-                        'provide project name', self._logger.ATS_ERROR
+                        f'generation project {getattr(args, "name")} done',
+                        self._logger.ATS_INFO
                     )
-            else:
-                error_message([f'{self._GEN_VERBOSE} project already exist'])
-                self._logger.write_log(
-                    'project already exist', self._logger.ATS_ERROR
+                else:
+                    error_message([f'{self._GEN_VERBOSE} failed'])
+                    self._logger.write_log(
+                        'generation failed', self._logger.ATS_ERROR
+                    )
+            except SystemExit:
+                error_message(
+                    [f'{self._GEN_VERBOSE.lower()} expected argument -n']
                 )
+                return status
         else:
             error_message([f'{self._GEN_VERBOSE} tool is not operational'])
             self._logger.write_log(
