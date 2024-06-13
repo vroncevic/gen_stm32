@@ -96,7 +96,7 @@ You can use Dockerfile to create image/container.
 
 ### Dependencies
 
-This module requires these other modules and libraries
+**gen_stm32** requires these other modules and libraries
 
 * ats_utilities https://vroncevic.github.io/ats_utilities
 

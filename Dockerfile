@@ -24,7 +24,16 @@ RUN DEBIAN_FRONTEND=noninteractive \
     unzip \
     ca-certificates \
     openssl \
-    libyaml-dev
+    libyaml-dev \
+    build-essential \
+    gcc-arm-none-eabi \
+    gdb-multiarch \
+    libtool \
+    pkg-config \
+    autoconf \
+    automake \
+    texinfo \
+    libusb-1.0-0-dev
 
 RUN wget https://bootstrap.pypa.io/get-pip.py
 RUN python3 get-pip.py
