@@ -107,117 +107,127 @@ gen_stm32 is based on OOP.
 Generator structure
 
 ```bash
-gen_stm32/
-    ├── conf/
-    │   ├── gen_stm32.logo
-    │   ├── gen_stm32.cfg
-    │   ├── gen_stm32_util.cfg
-    │   ├── project.yaml
-    │   └── template/
-    │       ├── build/
-    │       │   ├── includes/
-    │       │   │   └── STM32F4xx_StdPeriph_Driver/
-    │       │   │       └── src/
-    │       │   │           └── subdir.template
-    │       │   ├── Makefile.template
-    │       │   ├── objects.template
-    │       │   ├── source/
-    │       │   │   └── subdir.template
-    │       │   └── sources.template
-    │       ├── includes/
-    │       │   ├── CMSIS/
-    │       │   │   ├── arm_common_tables.template
-    │       │   │   ├── arm_math.template
-    │       │   │   ├── core_cm0.template
-    │       │   │   ├── core_cm3.template
-    │       │   │   ├── core_cm4_simd.template
-    │       │   │   ├── core_cm4.template
-    │       │   │   ├── core_cmFunc.template
-    │       │   │   └── core_cmInstr.template
-    │       │   ├── STM32F4xx/
-    │       │   │   ├── stm32f4xx_conf.template
-    │       │   │   ├── stm32f4xx.template
-    │       │   │   └── system_stm32f4xx.template
-    │       │   └── STM32F4xx_StdPeriph_Driver/
-    │       │       ├── inc/
-    │       │       │   ├── misc.template
-    │       │       │   ├── stm32f4xx_adc.template
-    │       │       │   ├── stm32f4xx_can.template
-    │       │       │   ├── stm32f4xx_crc.template
-    │       │       │   ├── stm32f4xx_cryp.template
-    │       │       │   ├── stm32f4xx_dac.template
-    │       │       │   ├── stm32f4xx_dbgmcu.template
-    │       │       │   ├── stm32f4xx_dcmi.template
-    │       │       │   ├── stm32f4xx_dma.template
-    │       │       │   ├── stm32f4xx_exti.template
-    │       │       │   ├── stm32f4xx_flash.template
-    │       │       │   ├── stm32f4xx_fsmc.template
-    │       │       │   ├── stm32f4xx_gpio.template
-    │       │       │   ├── stm32f4xx_hash.template
-    │       │       │   ├── stm32f4xx_i2c.template
-    │       │       │   ├── stm32f4xx_iwdg.template
-    │       │       │   ├── stm32f4xx_pwr.template
-    │       │       │   ├── stm32f4xx_rcc.template
-    │       │       │   ├── stm32f4xx_rng.template
-    │       │       │   ├── stm32f4xx_rtc.template
-    │       │       │   ├── stm32f4xx_sdio.template
-    │       │       │   ├── stm32f4xx_spi.template
-    │       │       │   ├── stm32f4xx_syscfg.template
-    │       │       │   ├── stm32f4xx_tim.template
-    │       │       │   ├── stm32f4xx_usart.template
-    │       │       │   └── stm32f4xx_wwdg.template
-    │       │       └── src/
-    │       │           ├── misc.template
-    │       │           ├── stm32f4xx_adc.template
-    │       │           ├── stm32f4xx_can.template
-    │       │           ├── stm32f4xx_crc.template
-    │       │           ├── stm32f4xx_cryp_aes.template
-    │       │           ├── stm32f4xx_cryp_des.template
-    │       │           ├── stm32f4xx_cryp_tdes.template
-    │       │           ├── stm32f4xx_cryp.template
-    │       │           ├── stm32f4xx_dac.template
-    │       │           ├── stm32f4xx_dbgmcu.template
-    │       │           ├── stm32f4xx_dcmi.template
-    │       │           ├── stm32f4xx_dma.template
-    │       │           ├── stm32f4xx_exti.template
-    │       │           ├── stm32f4xx_flash.template
-    │       │           ├── stm32f4xx_fsmc.template
-    │       │           ├── stm32f4xx_gpio.template
-    │       │           ├── stm32f4xx_hash_md5.template
-    │       │           ├── stm32f4xx_hash_sha1.template
-    │       │           ├── stm32f4xx_hash.template
-    │       │           ├── stm32f4xx_i2c.template
-    │       │           ├── stm32f4xx_iwdg.template
-    │       │           ├── stm32f4xx_pwr.template
-    │       │           ├── stm32f4xx_rcc.template
-    │       │           ├── stm32f4xx_rng.template
-    │       │           ├── stm32f4xx_rtc.template
-    │       │           ├── stm32f4xx_sdio.template
-    │       │           ├── stm32f4xx_spi.template
-    │       │           ├── stm32f4xx_syscfg.template
-    │       │           ├── stm32f4xx_tim.template
-    │       │           ├── stm32f4xx_usart.template
-    │       │           └── stm32f4xx_wwdg.template
-    │       ├── scripts/
-    │       │   └── arm_cortex_m4_512.template
-    │       └── source/
-    │           ├── main.template
-    │           ├── startup_stm32f4xx.template
-    │           ├── syscall.template
-    │           ├── system_stm32f4xx.template
-    │           └── tinynew.template
-    ├── __init__.py
-    ├── log/
-    │   └── gen_stm32.log
-    ├── pro/
-    │   ├── __init__.py
-    │   ├── read_template.py
-    │   └── write_template.py
-    └── run/
-        └── gen_stm32_run.py
+    gen_stm32/
+        ├── conf/
+        │   ├── gen_stm32.logo
+        │   ├── gen_stm32.cfg
+        │   ├── gen_stm32_util.cfg
+        │   ├── project.yaml
+        │   └── template/
+        │       ├── build/
+        │       │   ├── includes/
+        │       │   │   └── STM32F4xx_StdPeriph_Driver/
+        │       │   │       └── src/
+        │       │   │           └── subdir.template
+        │       │   ├── Makefile.template
+        │       │   ├── objects.template
+        │       │   ├── source/
+        │       │   │   └── subdir.template
+        │       │   └── sources.template
+        │       ├── includes/
+        │       │   ├── CMSIS/
+        │       │   │   ├── arm_common_tables.template
+        │       │   │   ├── arm_math.template
+        │       │   │   ├── core_cm0.template
+        │       │   │   ├── core_cm3.template
+        │       │   │   ├── core_cm4_simd.template
+        │       │   │   ├── core_cm4.template
+        │       │   │   ├── core_cmFunc.template
+        │       │   │   └── core_cmInstr.template
+        │       │   ├── STM32F4xx/
+        │       │   │   ├── stm32f4xx_conf.template
+        │       │   │   ├── stm32f4xx.template
+        │       │   │   └── system_stm32f4xx.template
+        │       │   └── STM32F4xx_StdPeriph_Driver/
+        │       │       ├── inc/
+        │       │       │   ├── misc.template
+        │       │       │   ├── stm32f4xx_adc.template
+        │       │       │   ├── stm32f4xx_can.template
+        │       │       │   ├── stm32f4xx_crc.template
+        │       │       │   ├── stm32f4xx_cryp.template
+        │       │       │   ├── stm32f4xx_dac.template
+        │       │       │   ├── stm32f4xx_dbgmcu.template
+        │       │       │   ├── stm32f4xx_dcmi.template
+        │       │       │   ├── stm32f4xx_dma.template
+        │       │       │   ├── stm32f4xx_exti.template
+        │       │       │   ├── stm32f4xx_flash.template
+        │       │       │   ├── stm32f4xx_fsmc.template
+        │       │       │   ├── stm32f4xx_gpio.template
+        │       │       │   ├── stm32f4xx_hash.template
+        │       │       │   ├── stm32f4xx_i2c.template
+        │       │       │   ├── stm32f4xx_iwdg.template
+        │       │       │   ├── stm32f4xx_pwr.template
+        │       │       │   ├── stm32f4xx_rcc.template
+        │       │       │   ├── stm32f4xx_rng.template
+        │       │       │   ├── stm32f4xx_rtc.template
+        │       │       │   ├── stm32f4xx_sdio.template
+        │       │       │   ├── stm32f4xx_spi.template
+        │       │       │   ├── stm32f4xx_syscfg.template
+        │       │       │   ├── stm32f4xx_tim.template
+        │       │       │   ├── stm32f4xx_usart.template
+        │       │       │   └── stm32f4xx_wwdg.template
+        │       │       └── src/
+        │       │           ├── misc.template
+        │       │           ├── stm32f4xx_adc.template
+        │       │           ├── stm32f4xx_can.template
+        │       │           ├── stm32f4xx_crc.template
+        │       │           ├── stm32f4xx_cryp_aes.template
+        │       │           ├── stm32f4xx_cryp_des.template
+        │       │           ├── stm32f4xx_cryp_tdes.template
+        │       │           ├── stm32f4xx_cryp.template
+        │       │           ├── stm32f4xx_dac.template
+        │       │           ├── stm32f4xx_dbgmcu.template
+        │       │           ├── stm32f4xx_dcmi.template
+        │       │           ├── stm32f4xx_dma.template
+        │       │           ├── stm32f4xx_exti.template
+        │       │           ├── stm32f4xx_flash.template
+        │       │           ├── stm32f4xx_fsmc.template
+        │       │           ├── stm32f4xx_gpio.template
+        │       │           ├── stm32f4xx_hash_md5.template
+        │       │           ├── stm32f4xx_hash_sha1.template
+        │       │           ├── stm32f4xx_hash.template
+        │       │           ├── stm32f4xx_i2c.template
+        │       │           ├── stm32f4xx_iwdg.template
+        │       │           ├── stm32f4xx_pwr.template
+        │       │           ├── stm32f4xx_rcc.template
+        │       │           ├── stm32f4xx_rng.template
+        │       │           ├── stm32f4xx_rtc.template
+        │       │           ├── stm32f4xx_sdio.template
+        │       │           ├── stm32f4xx_spi.template
+        │       │           ├── stm32f4xx_syscfg.template
+        │       │           ├── stm32f4xx_tim.template
+        │       │           ├── stm32f4xx_usart.template
+        │       │           └── stm32f4xx_wwdg.template
+        │       ├── scripts/
+        │       │   └── arm_cortex_m4_512.template
+        │       └── source/
+        │           ├── main.template
+        │           ├── startup_stm32f4xx.template
+        │           ├── syscall.template
+        │           ├── system_stm32f4xx.template
+        │           └── tinynew.template
+        ├── __init__.py
+        ├── log/
+        │   └── gen_stm32.log
+        ├── pro/
+        │   ├── __init__.py
+        │   ├── read_template.py
+        │   └── write_template.py
+        └── run/
+            └── gen_stm32_run.py
 
     19 directories, 89 files
 ```
+
+### Code coverage
+
+| Name | Stmts | Miss | Cover |
+|------|-------|------|-------|
+| `gen_stm32/__init__.py` | 71 | 12 | 83% |
+| `gen_stm32/pro/__init__.py` | 59 | 2 | 97% |
+| `gen_stm32/pro/read_template.py` | 52 | 2 | 96% |
+| `gen_stm32/pro/write_template.py` | 78 | 3 | 96% |
+| **Total** | 260 | 19 | 93% |
 
 ### Docs
 
