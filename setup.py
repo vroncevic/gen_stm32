@@ -21,7 +21,7 @@ Info
 '''
 
 from __future__ import print_function
-from typing import List
+from typing import List, Optional
 from os.path import abspath, dirname, join
 from setuptools import setup
 
@@ -29,7 +29,7 @@ __author__ = 'Vladimir Roncevic'
 __copyright__ = '(C) 2024, https://vroncevic.github.io/gen_stm32'
 __credits__: List[str] = ['Vladimir Roncevic', 'Python Software Foundation']
 __license__ = 'https://github.com/vroncevic/gen_stm32/blob/dev/LICENSE'
-__version__ = '1.2.3'
+__version__ = '1.2.4'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
@@ -47,7 +47,7 @@ SCRIPTS: str = 'conf/template/scripts/'
 SOURCE: str = 'conf/template/source/'
 LOG: str = 'log'
 THIS_DIR: str = abspath(dirname(__file__))
-long_description: str | None = None
+long_description: Optional[str] = None
 with open(join(THIS_DIR, 'README.md'), encoding='utf-8') as readme:
     long_description = readme.read()
 PROGRAMMING_LANG: str = 'Programming Language :: Python ::'
@@ -69,7 +69,7 @@ APPROVED_LICENSES: List[str] = [
 PYP_CLASSIFIERS: List[str] = SUPPORTED_PY_VERSIONS + APPROVED_LICENSES
 setup(
     name='gen_stm32',
-    version='1.2.3',
+    version='1.2.4',
     description='STM32 project skeleton generator',
     author='Vladimir Roncevic',
     author_email='elektron.ronca@gmail.com',
