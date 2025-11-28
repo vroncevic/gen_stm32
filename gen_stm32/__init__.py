@@ -4,7 +4,7 @@
 Module
     __init__.py
 Copyright
-    Copyright (C) 2018 - 2024 Vladimir Roncevic <elektron.ronca@gmail.com>
+    Copyright (C) 2018 - 2026 Vladimir Roncevic <elektron.ronca@gmail.com>
     gen_stm32 is free software: you can redistribute it and/or modify it
     under the terms of the GNU General Public License as published by the
     Free Software Foundation, either version 3 of the License, or
@@ -36,18 +36,18 @@ try:
     from ats_utilities.exceptions.ats_type_error import ATSTypeError
     from ats_utilities.exceptions.ats_value_error import ATSValueError
     from gen_stm32.pro import STM32Setup
-except ImportError as ats_error_message:
-    # Force close python ATS ##################################################
-    sys.exit(f'\n{__file__}\n{ats_error_message}\n')
+except ImportError as ats_error_message:  # pragma: no cover
+    # Force exit python #######################################################
+    sys.exit(f'\n{__file__}\n{ats_error_message}\n')  # pragma: no cover
 
-__author__ = 'Vladimir Roncevic'
-__copyright__ = '(C) 2024, https://vroncevic.github.io/gen_stm32'
+__author__: str = 'Vladimir Roncevic'
+__copyright__: str = '(C) 2026, https://vroncevic.github.io/gen_stm32'
 __credits__: List[str] = ['Vladimir Roncevic', 'Python Software Foundation']
-__license__ = 'https://github.com/vroncevic/gen_stm32/blob/dev/LICENSE'
-__version__ = '1.2.4'
-__maintainer__ = 'Vladimir Roncevic'
-__email__ = 'elektron.ronca@gmail.com'
-__status__ = 'Updated'
+__license__: str = 'https://github.com/vroncevic/gen_stm32/blob/dev/LICENSE'
+__version__: str = '1.2.5'
+__maintainer__: str = 'Vladimir Roncevic'
+__email__: str = 'elektron.ronca@gmail.com'
+__status__: str = 'Updated'
 
 
 class GenSTM32(ATSCli):
