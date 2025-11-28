@@ -1,4 +1,4 @@
-# Copyright 2018 - 2024 Vladimir Roncevic <elektron.ronca@gmail.com>
+# Copyright 2018 - 2026 Vladimir Roncevic <elektron.ronca@gmail.com>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -45,7 +45,6 @@ COPY requirements.txt /
 RUN python3 -m venv env
 RUN mkdir /gen_stm32/
 COPY gen_stm32 /gen_stm32/
-COPY setup.cfg /
 COPY pyproject.toml /
 COPY MANIFEST.in /
 COPY setup.py /
@@ -60,7 +59,6 @@ RUN pip3 install /dist/gen_stm32-*-py3-none-any.whl
 RUN rm -rf /gen_stm32/
 RUN rm -f setup.py
 RUN rm -f README.md
-RUN rm -f setup.cfg
 RUN rm -f pyproject.toml
 RUN rm -f MANIFEST.in
 RUN rm -f LICENSE
