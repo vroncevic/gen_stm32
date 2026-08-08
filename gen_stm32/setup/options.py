@@ -2,9 +2,9 @@
 
 '''
 Module
-    __init__.py
+    options.py
 Copyright
-    Copyright (C) 2018 - 2026 Vladimir Roncevic <elektron.ronca@gmail.com>
+    Copyright (C) 2026 Vladimir Roncevic <elektron.ronca@gmail.com>
     gen_stm32 is free software: you can redistribute it and/or modify it
     under the terms of the GNU General Public License as published by the
     Free Software Foundation, either version 3 of the License, or
@@ -16,14 +16,31 @@ Copyright
     You should have received a copy of the GNU General Public License along
     with this program. If not, see <http://www.gnu.org/licenses/>.
 Info
-    Initialization module for the gen_stm32.
+    GenSTM32 bundle options for the gen_stm32 bundle.
 '''
+
+from __future__ import annotations
+
+from typing import TypedDict
 
 __author__ = 'Vladimir Roncevic'
 __copyright__ = '(C) 2026, https://vroncevic.github.io/gen_stm32'
 __credits__ = ['Vladimir Roncevic', 'Python Software Foundation']
 __license__ = 'https://github.com/vroncevic/gen_stm32/blob/dev/LICENSE'
-__version__ = '1.4.7'
+__version__ = '1.0.5'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
-__status__ = 'Development'
+__status__ = 'Updated'
+
+
+class GenSTM32BundleOptions(TypedDict):
+    '''
+        GenSTM32 bundle options for the gen_stm32 bundle.
+
+        It defines:
+
+            :attributes:
+                | info_file - The info file path for the gen_stm32 bundle.
+    '''
+
+    info_file: str
