@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>STM32 project skeleton generator &#8212; gen_stm32 https://github.com/vroncevic/gen_stm32/releases documentation</title>
+    <title>Create STM32 project skeleton &#8212; gen_stm32 https://github.com/vroncevic/gen_stm32/releases documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/classic.css?v=514cf933" />
     
@@ -30,7 +30,7 @@
           <a href="modules.html" title="gen_stm32"
              accesskey="N">next</a> |</li>
         <li class="nav-item nav-item-0"><a href="#">gen_stm32 https://github.com/vroncevic/gen_stm32/releases documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">STM32 project skeleton generator</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Create STM32 project skeleton</a></li> 
       </ul>
     </div>  
 
@@ -39,37 +39,43 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="stm32-project-skeleton-generator">
-<h1>STM32 project skeleton generator<a class="headerlink" href="#stm32-project-skeleton-generator" title="Link to this heading">¶</a></h1>
-<p><strong>gen_stm32</strong> is toolset for generation STM32 project skeleton for development of embedded applications.</p>
+  <section id="create-stm32-project-skeleton">
+<h1>Create STM32 project skeleton<a class="headerlink" href="#create-stm32-project-skeleton" title="Link to this heading">¶</a></h1>
+<p><strong>gen_stm32</strong> is tool for creating STM32 project skeleton.</p>
 <p>Developed in <a class="reference external" href="https://www.python.org/">python</a> code.</p>
 <p>The README is used to introduce the tool and provide instructions on
 how to install the tool, any machine dependencies it may have and any
 other information that should be provided before the tool is installed.</p>
-<p><a class="reference external" href="https://github.com/vroncevic/gen_stm32/actions/workflows/gen_stm32_python_checker.yml"><img alt="gen_stm32 python checker" src="https://github.com/vroncevic/gen_stm32/actions/workflows/gen_stm32_python_checker.yml/badge.svg" /></a> <a class="reference external" href="https://github.com/vroncevic/gen_stm32/actions/workflows/gen_stm32_package.yml"><img alt="gen_stm32 python package" src="https://github.com/vroncevic/gen_stm32/actions/workflows/gen_stm32_package_checker.yml/badge.svg" /></a> <a class="reference external" href="https://github.com/vroncevic/gen_stm32/issues"><img alt="github issues" src="https://img.shields.io/github/issues/vroncevic/gen_stm32.svg" /></a> <a class="reference external" href="https://gen-stm32.readthedocs.io/en/latest/?badge=latest"><img alt="documentation status" src="https://readthedocs.org/projects/gen-stm32/badge/?version=latest" /></a> <a class="reference external" href="https://github.com/vroncevic/gen_stm32/graphs/contributors"><img alt="github contributors" src="https://img.shields.io/github/contributors/vroncevic/gen_stm32.svg" /></a></p>
+<p><a class="reference external" href="https://github.com/vroncevic/gen_stm32/actions/workflows/gen_stm32_python_checker.yml"><img alt="gen_stm32 python checker" src="https://github.com/vroncevic/gen_stm32/actions/workflows/gen_stm32_python_checker.yml/badge.svg" /></a> <a class="reference external" href="https://github.com/vroncevic/gen_stm32/actions/workflows/gen_stm32_package.yml"><img alt="gen_stm32 python package" src="https://github.com/vroncevic/gen_stm32/actions/workflows/gen_stm32_package_checker.yml/badge.svg" /></a> <a class="reference external" href="https://github.com/vroncevic/gen_stm32/actions/workflows/gen_stm32_interface_checker.yml"><img alt="gen_stm32 interface checker" src="https://github.com/vroncevic/gen_stm32/actions/workflows/gen_stm32_interface_checker.yml/badge.svg" /></a> <a class="reference external" href="https://github.com/vroncevic/gen_stm32/actions/workflows/gen_stm32_isp_checker.yml"><img alt="gen_stm32 isp checker" src="https://github.com/vroncevic/gen_stm32/actions/workflows/gen_stm32_isp_checker.yml/badge.svg" /></a> <a class="reference external" href="https://github.com/vroncevic/gen_stm32/actions/workflows/gen_stm32_srp_checker.yml"><img alt="gen_stm32 srp checker" src="https://github.com/vroncevic/gen_stm32/actions/workflows/gen_stm32_srp_checker.yml/badge.svg" /></a> <a class="reference external" href="https://github.com/vroncevic/gen_stm32/issues"><img alt="github issues" src="https://img.shields.io/github/issues/vroncevic/gen_stm32.svg" /></a> <a class="reference external" href="https://gen-stm32.readthedocs.io/en/latest/?badge=latest"><img alt="documentation status" src="https://readthedocs.org/projects/gen-stm32/badge/?version=latest" /></a> <a class="reference external" href="https://github.com/vroncevic/gen_stm32/graphs/contributors"><img alt="github contributors" src="https://img.shields.io/github/contributors/vroncevic/gen_stm32.svg" /></a></p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Create STM32 project skeleton</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">gen_stm32</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="gen_stm32.html">gen_stm32 package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="gen_stm32.html#subpackages">Subpackages</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="gen_stm32.pro.html">gen_stm32.pro package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gen_stm32.core.html">gen_stm32.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gen_stm32.setup.html">gen_stm32.setup package</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="gen_stm32.html#module-gen_stm32">Module contents</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="gen_stm32.html#gen_stm32.GenSTM32"><code class="docutils literal notranslate"><span class="pre">GenSTM32</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_stm32.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gen_stm32.engine.html">gen_stm32.engine module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="gen_stm32.html#module-gen_stm32">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main.html#main.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">STM32 project skeleton generator</a></li>
 </ul>
 </div>
 </section>
 <section id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h1>
+<h1>🚀 Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h1>
 <p><a class="reference external" href="https://github.com/vroncevic/gen_stm32/actions/workflows/gen_stm32_python3_build.yml"><img alt="gen_stm32 python3 build" src="https://github.com/vroncevic/gen_stm32/actions/workflows/gen_stm32_python3_build.yml/badge.svg" /></a></p>
 <p>Navigate to release <a class="reference external" href="https://github.com/vroncevic/gen_stm32/releases">page</a> download and extract release archive.</p>
 <p>To install <strong>gen_stm32</strong> type the following</p>
@@ -85,158 +91,350 @@ pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </
 python3<span class="w"> </span>-m<span class="w"> </span>build<span class="w"> </span>--no-isolation<span class="w"> </span>--wheel
 pip3<span class="w"> </span>install<span class="w"> </span>./dist/gen_stm32-*-py3-none-any.whl
 rm<span class="w"> </span>-f<span class="w"> </span>get-pip.py
-chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>/usr/local/lib/python3.10/dist-packages/usr/local/bin/gen_stm32_run.py
-ln<span class="w"> </span>-s<span class="w"> </span>/usr/local/lib/python3.10/dist-packages/usr/local/bin/gen_stm32_run.py<span class="w"> </span>/usr/local/bin/gen_stm32_run.py
 </pre></div>
 </div>
 <p>You can use Docker to create image/container, or You can use pip to install</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># pyton3</span>
-pip3<span class="w"> </span>install<span class="w"> </span>gen-stm32
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># python3</span>
+pip3<span class="w"> </span>install<span class="w"> </span>gen_stm32
 </pre></div>
 </div>
 </section>
 <section id="dependencies">
-<h1>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading">¶</a></h1>
+<h1>📦 Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading">¶</a></h1>
 <p><strong>gen_stm32</strong> requires next modules and libraries</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pypi.org/project/ats-utilities/">ats-utilities - Python App/Tool/Script Utilities</a></p></li>
 </ul>
 </section>
 <section id="tool-structure">
-<h1>Tool structure<a class="headerlink" href="#tool-structure" title="Link to this heading">¶</a></h1>
+<h1>📁 Tool structure<a class="headerlink" href="#tool-structure" title="Link to this heading">¶</a></h1>
 <p><strong>gen_stm32</strong> is based on OOP.</p>
-<p>Code structure:</p>
+<p>Tool structure</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gen_stm32/
-<span class="w">    </span>├──<span class="w"> </span>conf/
-<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>gen_stm32.logo
-<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>gen_stm32.cfg
-<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>gen_stm32_util.cfg
-<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>project.yaml
-<span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>template/
-<span class="w">    </span>│<span class="w">       </span>├──<span class="w"> </span>build/
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>includes/
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>STM32F4xx_StdPeriph_Driver/
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">   </span>│<span class="w">       </span>└──<span class="w"> </span>src/
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">   </span>│<span class="w">           </span>└──<span class="w"> </span>subdir.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>Makefile.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>objects.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>source/
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>subdir.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">   </span>└──<span class="w"> </span>sources.template
-<span class="w">    </span>│<span class="w">       </span>├──<span class="w"> </span>includes/
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>CMSIS/
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>arm_common_tables.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>arm_math.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>core_cm0.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>core_cm3.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>core_cm4_simd.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>core_cm4.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>core_cmFunc.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>core_cmInstr.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>STM32F4xx/
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_conf.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>system_stm32f4xx.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">   </span>└──<span class="w"> </span>STM32F4xx_StdPeriph_Driver/
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>├──<span class="w"> </span>inc/
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>misc.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_adc.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_can.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_crc.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_cryp.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_dac.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_dbgmcu.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_dcmi.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_dma.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_exti.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_flash.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_fsmc.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_gpio.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_hash.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_i2c.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_iwdg.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_pwr.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_rcc.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_rng.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_rtc.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_sdio.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_spi.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_syscfg.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_tim.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>stm32f4xx_usart.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>│<span class="w">   </span>└──<span class="w"> </span>stm32f4xx_wwdg.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">       </span>└──<span class="w"> </span>src/
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>misc.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_adc.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_can.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_crc.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_cryp_aes.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_cryp_des.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_cryp_tdes.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_cryp.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_dac.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_dbgmcu.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_dcmi.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_dma.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_exti.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_flash.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_fsmc.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_gpio.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_hash_md5.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_hash_sha1.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_hash.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_i2c.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_iwdg.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_pwr.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_rcc.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_rng.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_rtc.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_sdio.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_spi.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_syscfg.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_tim.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>├──<span class="w"> </span>stm32f4xx_usart.template
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">           </span>└──<span class="w"> </span>stm32f4xx_wwdg.template
-<span class="w">    </span>│<span class="w">       </span>├──<span class="w"> </span>scripts/
-<span class="w">    </span>│<span class="w">       </span>│<span class="w">   </span>└──<span class="w"> </span>arm_cortex_m4_512.template
-<span class="w">    </span>│<span class="w">       </span>└──<span class="w"> </span>source/
-<span class="w">    </span>│<span class="w">           </span>├──<span class="w"> </span>main.template
-<span class="w">    </span>│<span class="w">           </span>├──<span class="w"> </span>startup_stm32f4xx.template
-<span class="w">    </span>│<span class="w">           </span>├──<span class="w"> </span>syscall.template
-<span class="w">    </span>│<span class="w">           </span>├──<span class="w"> </span>system_stm32f4xx.template
-<span class="w">    </span>│<span class="w">           </span>└──<span class="w"> </span>tinynew.template
-<span class="w">    </span>├──<span class="w"> </span>__init__.py
-<span class="w">    </span>├──<span class="w"> </span>log/
-<span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>gen_stm32.log
-<span class="w">    </span>├──<span class="w"> </span>pro/
-<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>__init__.py
-<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>read_template.py
-<span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>write_template.py
-<span class="w">    </span>└──<span class="w"> </span>run/
-<span class="w">        </span>└──<span class="w"> </span>gen_stm32_run.py
+<span class="w">     </span>├──<span class="w"> </span>core/
+<span class="w">     </span>│<span class="w">   </span>├──<span class="w"> </span>__init__.py
+<span class="w">     </span>│<span class="w">   </span>├──<span class="w"> </span>model/
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>__init__.py
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>project_setup.py
+<span class="w">     </span>│<span class="w">   </span>└──<span class="w"> </span>service/
+<span class="w">     </span>│<span class="w">       </span>├──<span class="w"> </span>engine.py
+<span class="w">     </span>│<span class="w">       </span>├──<span class="w"> </span>__init__.py
+<span class="w">     </span>│<span class="w">       </span>├──<span class="w"> </span>iservice.py
+<span class="w">     </span>│<span class="w">       </span>└──<span class="w"> </span>isubprocessor.py
+<span class="w">     </span>├──<span class="w"> </span>engine.py
+<span class="w">     </span>├──<span class="w"> </span>infrastructure/
+<span class="w">     </span>│<span class="w">   </span>├──<span class="w"> </span>cli/
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>engine.py
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>icli.py
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>__init__.py
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>setup/
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">       </span>├──<span class="w"> </span>bundle.py
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">       </span>├──<span class="w"> </span>dep_validator.py
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">       </span>├──<span class="w"> </span>dependencies.py
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">       </span>├──<span class="w"> </span>factory.py
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">       </span>├──<span class="w"> </span>__init__.py
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">       </span>├──<span class="w"> </span>keys.py
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">       </span>├──<span class="w"> </span>opt_validator.py
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">       </span>├──<span class="w"> </span>options.py
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">       </span>├──<span class="w"> </span>registry.py
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">       </span>└──<span class="w"> </span>validator.py
+<span class="w">     </span>│<span class="w">   </span>├──<span class="w"> </span>command/
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>command.py
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>gen_stm32_command_definition.py
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>gen_stm32_command_executor.py
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>icommand_definition.py
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>icommand_executor.py
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>__init__.py
+<span class="w">     </span>│<span class="w">   </span>├──<span class="w"> </span>config/
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>gen_stm32.cfg
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>gen_stm32.logo
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>scheme.json
+<span class="w">     </span>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>templates.tgz
+<span class="w">     </span>│<span class="w">   </span>└──<span class="w"> </span>subprocessor.py
+<span class="w">     </span>├──<span class="w"> </span>__init__.py
+<span class="w">     </span>├──<span class="w"> </span>py.typed
+<span class="w">     </span>└──<span class="w"> </span>setup/
+<span class="w">         </span>├──<span class="w"> </span>bundle.py
+<span class="w">         </span>├──<span class="w"> </span>dep_validator.py
+<span class="w">         </span>├──<span class="w"> </span>dependencies.py
+<span class="w">         </span>├──<span class="w"> </span>factory.py
+<span class="w">         </span>├──<span class="w"> </span>__init__.py
+<span class="w">         </span>├──<span class="w"> </span>keys.py
+<span class="w">         </span>├──<span class="w"> </span>opt_validator.py
+<span class="w">         </span>├──<span class="w"> </span>options.py
+<span class="w">         </span>├──<span class="w"> </span>registry.py
+<span class="w">         </span>└──<span class="w"> </span>validator.py
 
-<span class="m">19</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">89</span><span class="w"> </span>files
+<span class="w"> </span><span class="m">10</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">44</span><span class="w"> </span>files
 </pre></div>
 </div>
 </section>
+<section id="features">
+<h1>✨ Features<a class="headerlink" href="#features" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>Automatically scaffolds ARM 32-bit assembly projects with build/make files.</p></li>
+<li><p>Provides a modular and extensible architecture based on OOP and SOLID principles.</p></li>
+<li><p>Includes command line interface (CLI) support via a command/executor structure.</p></li>
+<li><p>Robust validation of project bundles, dependencies, and options.</p></li>
+<li><p>Comes with configurable templates and JSON schema definitions.</p></li>
+<li><p>High code quality with full type checking and 100% unit test coverage.</p></li>
+</ul>
+</section>
+<section id="code-coverage">
+<h1>📊 Code coverage<a class="headerlink" href="#code-coverage" title="Link to this heading">¶</a></h1>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Code coverage</span><a class="headerlink" href="#id1" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 60.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Stmts</p></th>
+<th class="head"><p>Miss</p></th>
+<th class="head"><p>Cover</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>gen_stm32/__init__.py</p></td>
+<td><p>9</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-odd"><td><p>gen_stm32/core/__init__.py</p></td>
+<td><p>9</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-even"><td><p>gen_stm32/core/model/__init__.py</p></td>
+<td><p>9</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-odd"><td><p>gen_stm32/core/model/project_setup.py</p></td>
+<td><p>14</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-even"><td><p>gen_stm32/core/service/__init__.py</p></td>
+<td><p>9</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-odd"><td><p>gen_stm32/core/service/engine.py</p></td>
+<td><p>27</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-even"><td><p>gen_stm32/core/service/iservice.py</p></td>
+<td><p>14</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-odd"><td><p>gen_stm32/core/service/isubprocessor.py</p></td>
+<td><p>14</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-even"><td><p>gen_stm32/engine.py</p></td>
+<td><p>57</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-odd"><td><p>gen_stm32/infrastructure/cli/__init__.py</p></td>
+<td><p>9</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-even"><td><p>gen_stm32/infrastructure/cli/engine.py</p></td>
+<td><p>39</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-odd"><td><p>gen_stm32/infrastructure/cli/icli.py</p></td>
+<td><p>14</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-even"><td><p>gen_stm32/infrastructure/cli/setup/__init__.py</p></td>
+<td><p>9</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-odd"><td><p>gen_stm32/infrastructure/cli/setup/bundle.py</p></td>
+<td><p>22</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-even"><td><p>gen_stm32/infrastructure/cli/setup/dep_validator.py</p></td>
+<td><p>36</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-odd"><td><p>gen_stm32/infrastructure/cli/setup/dependencies.py</p></td>
+<td><p>18</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-even"><td><p>gen_stm32/infrastructure/cli/setup/factory.py</p></td>
+<td><p>35</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-odd"><td><p>gen_stm32/infrastructure/cli/setup/keys.py</p></td>
+<td><p>26</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-even"><td><p>gen_stm32/infrastructure/cli/setup/opt_validator.py</p></td>
+<td><p>36</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-odd"><td><p>gen_stm32/infrastructure/cli/setup/options.py</p></td>
+<td><p>15</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-even"><td><p>gen_stm32/infrastructure/cli/setup/registry.py</p></td>
+<td><p>24</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-odd"><td><p>gen_stm32/infrastructure/cli/setup/validator.py</p></td>
+<td><p>43</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-even"><td><p>gen_stm32/infrastructure/command/__init__.py</p></td>
+<td><p>9</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-odd"><td><p>gen_stm32/infrastructure/command/command.py</p></td>
+<td><p>16</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-even"><td><p>gen_stm32/infrastructure/command/gen_stm32_command_definition.py</p></td>
+<td><p>24</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-odd"><td><p>gen_stm32/infrastructure/command/gen_stm32_command_executor.py</p></td>
+<td><p>21</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-even"><td><p>gen_stm32/infrastructure/command/icommand_definition.py</p></td>
+<td><p>14</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-odd"><td><p>gen_stm32/infrastructure/command/icommand_executor.py</p></td>
+<td><p>13</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-even"><td><p>gen_stm32/infrastructure/subprocessor.py</p></td>
+<td><p>56</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-odd"><td><p>gen_stm32/setup/__init__.py</p></td>
+<td><p>9</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-even"><td><p>gen_stm32/setup/bundle.py</p></td>
+<td><p>23</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-odd"><td><p>gen_stm32/setup/dep_validator.py</p></td>
+<td><p>36</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-even"><td><p>gen_stm32/setup/dependencies.py</p></td>
+<td><p>19</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-odd"><td><p>gen_stm32/setup/factory.py</p></td>
+<td><p>48</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-even"><td><p>gen_stm32/setup/keys.py</p></td>
+<td><p>27</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-odd"><td><p>gen_stm32/setup/opt_validator.py</p></td>
+<td><p>34</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-even"><td><p>gen_stm32/setup/options.py</p></td>
+<td><p>12</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-odd"><td><p>gen_stm32/setup/registry.py</p></td>
+<td><p>32</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-even"><td><p>gen_stm32/setup/validator.py</p></td>
+<td><p>48</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Total</p></td>
+<td><p>929</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="usage">
+<h1>🛠 Usage<a class="headerlink" href="#usage" title="Link to this heading">¶</a></h1>
+<p>Install package</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip3<span class="w"> </span>install<span class="w"> </span>gen_stm32
+</pre></div>
+</div>
+<p>Prepare main entry point by downloading <cite>main.py</cite> or create your own.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>-O<span class="w"> </span>main.py<span class="w"> </span>https://raw.githubusercontent.com/vroncevic/gen_stm32/main/main.py
+</pre></div>
+</div>
+<p>Running tool for creating new STM32 project skeleton</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>main.py<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>mytool<span class="w"> </span>--output<span class="w"> </span>./demo/
+</pre></div>
+</div>
+</section>
+<section id="docs">
+<h1>📚 Docs<a class="headerlink" href="#docs" title="Link to this heading">¶</a></h1>
+<p>More documentation and info at</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://gen-stm32.readthedocs.io">gen_stm32.readthedocs.io</a></p></li>
+<li><p><a class="reference external" href="https://www.python.org/">www.python.org</a></p></li>
+</ul>
+</section>
+<section id="contributing">
+<h1>👥 Contributing<a class="headerlink" href="#contributing" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://github.com/vroncevic/gen_stm32/blob/dev/CONTRIBUTING.md">Contributing to gen_stm32</a></p>
+</section>
 <section id="copyright-and-licence">
-<h1>Copyright and licence<a class="headerlink" href="#copyright-and-licence" title="Link to this heading">¶</a></h1>
-<p><a class="reference external" href="https://www.gnu.org/licenses/gpl-3.0"><img alt="License: GPL v3" src="https://img.shields.io/badge/License-GPLv3-blue.svg" /></a> <a class="reference external" href="https://opensource.org/licenses/Apache-2.0"><img alt="License: Apache 2.0" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a></p>
-<p>Copyright (C) 2018 - 2026 by <a class="reference external" href="https://vroncevic.github.io/gen_stm32">vroncevic.github.io/gen_stm32</a></p>
+<h1>📄 Copyright and licence<a class="headerlink" href="#copyright-and-licence" title="Link to this heading">¶</a></h1>
+<p>Copyright (C) 2025 - 2026 by <a class="reference external" href="https://vroncevic.github.io/gen_stm32">vroncevic.github.io/gen_stm32</a></p>
 <p><strong>gen_stm32</strong> is free software; you can redistribute it and/or modify
 it under the same terms as Python itself, either Python version 3.x or,
 at your option, any later version of Python 3 you may have available.</p>
 <p>Lets help and support PSF.</p>
-<p><a class="reference external" href="https://www.python.org/psf/"><img alt="python software foundation" src="https://raw.githubusercontent.com/vroncevic/gen_stm32/dev/docs/psf-logo-alpha.png" /></a></p>
-<p><a class="reference external" href="https://www.python.org/psf/donations/"><img alt="donate" src="https://www.paypalobjects.com/en_us/i/btn/btn_donatecc_lg.gif" /></a></p>
-</section>
-<section id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
-</ul>
 </section>
 
 
@@ -249,12 +447,16 @@ at your option, any later version of Python 3 you may have available.</p>
   <div>
     <h3><a href="#">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">STM32 project skeleton generator</a></li>
-<li><a class="reference internal" href="#installation">Installation</a></li>
-<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
-<li><a class="reference internal" href="#tool-structure">Tool structure</a></li>
-<li><a class="reference internal" href="#copyright-and-licence">Copyright and licence</a></li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+<li><a class="reference internal" href="#">Create STM32 project skeleton</a></li>
+<li><a class="reference internal" href="#installation">🚀 Installation</a></li>
+<li><a class="reference internal" href="#dependencies">📦 Dependencies</a></li>
+<li><a class="reference internal" href="#tool-structure">📁 Tool structure</a></li>
+<li><a class="reference internal" href="#features">✨ Features</a></li>
+<li><a class="reference internal" href="#code-coverage">📊 Code coverage</a></li>
+<li><a class="reference internal" href="#usage">🛠 Usage</a></li>
+<li><a class="reference internal" href="#docs">📚 Docs</a></li>
+<li><a class="reference internal" href="#contributing">👥 Contributing</a></li>
+<li><a class="reference internal" href="#copyright-and-licence">📄 Copyright and licence</a></li>
 </ul>
 
   </div>
@@ -297,7 +499,7 @@ at your option, any later version of Python 3 you may have available.</p>
           <a href="modules.html" title="gen_stm32"
              >next</a> |</li>
         <li class="nav-item nav-item-0"><a href="#">gen_stm32 https://github.com/vroncevic/gen_stm32/releases documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">STM32 project skeleton generator</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Create STM32 project skeleton</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

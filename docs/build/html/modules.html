@@ -16,7 +16,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="gen_stm32 package" href="gen_stm32.html" />
-    <link rel="prev" title="STM32 project skeleton generator" href="index.html" /> 
+    <link rel="prev" title="Create STM32 project skeleton" href="index.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,7 +31,7 @@
           <a href="gen_stm32.html" title="gen_stm32 package"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="STM32 project skeleton generator"
+          <a href="index.html" title="Create STM32 project skeleton"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">gen_stm32 https://github.com/vroncevic/gen_stm32/releases documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">gen_stm32</a></li> 
@@ -49,25 +49,30 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="gen_stm32.html">gen_stm32 package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="gen_stm32.html#subpackages">Subpackages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="gen_stm32.pro.html">gen_stm32.pro package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="gen_stm32.pro.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gen_stm32.pro.html#module-gen_stm32.pro">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_stm32.core.html">gen_stm32.core package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gen_stm32.core.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gen_stm32.core.html#module-gen_stm32.core">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="gen_stm32.setup.html">gen_stm32.setup package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gen_stm32.setup.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gen_stm32.setup.html#module-gen_stm32.setup">Module contents</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="gen_stm32.html#module-gen_stm32">Module contents</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="gen_stm32.html#gen_stm32.GenSTM32"><code class="docutils literal notranslate"><span class="pre">GenSTM32</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="gen_stm32.html#gen_stm32.GenSTM32._CONFIG"><code class="docutils literal notranslate"><span class="pre">GenSTM32._CONFIG</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="gen_stm32.html#gen_stm32.GenSTM32._GEN_VERBOSE"><code class="docutils literal notranslate"><span class="pre">GenSTM32._GEN_VERBOSE</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="gen_stm32.html#gen_stm32.GenSTM32._LOG"><code class="docutils literal notranslate"><span class="pre">GenSTM32._LOG</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="gen_stm32.html#gen_stm32.GenSTM32._LOGO"><code class="docutils literal notranslate"><span class="pre">GenSTM32._LOGO</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="gen_stm32.html#gen_stm32.GenSTM32._OPS"><code class="docutils literal notranslate"><span class="pre">GenSTM32._OPS</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="gen_stm32.html#gen_stm32.GenSTM32.process"><code class="docutils literal notranslate"><span class="pre">GenSTM32.process()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_stm32.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gen_stm32.engine.html">gen_stm32.engine module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gen_stm32.engine.html#gen_stm32.engine.GenSTM32"><code class="docutils literal notranslate"><span class="pre">GenSTM32</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="gen_stm32.html#module-gen_stm32">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="main.html">main module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main.html#main.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -84,7 +89,7 @@
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="index.html"
-                          title="previous chapter">STM32 project skeleton generator</a></p>
+                          title="previous chapter">Create STM32 project skeleton</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
@@ -125,7 +130,7 @@
           <a href="gen_stm32.html" title="gen_stm32 package"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="STM32 project skeleton generator"
+          <a href="index.html" title="Create STM32 project skeleton"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">gen_stm32 https://github.com/vroncevic/gen_stm32/releases documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">gen_stm32</a></li> 

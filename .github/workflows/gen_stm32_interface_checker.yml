@@ -1,0 +1,29 @@
+name: gen_stm32_interface_checker
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: [ master, main ]
+    paths:
+      - 'gen_stm32/**/*.py'
+      - 'setup.py'
+  pull_request:
+    branches: [ master, main ]
+    paths:
+      - 'gen_stm32/**/*.py'
+      - 'setup.py'
+
+jobs:
+  interface_gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Verify that each concrete class implements a valid interface
+        run: |
+          python3 gates/gates/interfaces_checker.py gen_stm32

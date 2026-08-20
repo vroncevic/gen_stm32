@@ -7,7 +7,16 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   gen_stm32.pro
+   gen_stm32.core
+   gen_stm32.setup
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   gen_stm32.engine
 
 Module contents
 ---------------

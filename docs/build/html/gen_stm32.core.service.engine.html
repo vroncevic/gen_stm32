@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>gen_stm32.core.service.engine module &#8212; gen_stm32 https://github.com/vroncevic/gen_stm32/releases documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=514cf933" />
+    
+    <script src="_static/documentation_options.js?v=39418e35"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gen_stm32.core.service.iservice module" href="gen_stm32.core.service.iservice.html" />
+    <link rel="prev" title="gen_stm32.core.service package" href="gen_stm32.core.service.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="gen_stm32.core.service.iservice.html" title="gen_stm32.core.service.iservice module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="gen_stm32.core.service.html" title="gen_stm32.core.service package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">gen_stm32 https://github.com/vroncevic/gen_stm32/releases documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >gen_stm32</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="gen_stm32.html" >gen_stm32 package</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="gen_stm32.core.html" >gen_stm32.core package</a> &#187;</li>
+          <li class="nav-item nav-item-4"><a href="gen_stm32.core.service.html" accesskey="U">gen_stm32.core.service package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">gen_stm32.core.service.engine module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-gen_stm32.core.service.engine">
+<span id="gen-stm32-core-service-engine-module"></span><h1>gen_stm32.core.service.engine module<a class="headerlink" href="#module-gen_stm32.core.service.engine" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>Module</dt><dd><p>engine.py</p>
+</dd>
+<dt>Copyright</dt><dd><p>Copyright (C) 2026 Vladimir Roncevic &lt;<a class="reference external" href="mailto:elektron&#46;ronca&#37;&#52;&#48;gmail&#46;com">elektron<span>&#46;</span>ronca<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;
+gen_stm32 is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the
+Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+gen_stm32 is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details.
+You should have received a copy of the GNU General Public License along
+with this program. If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p>
+</dd>
+<dt>Info</dt><dd><p>Defines application service for file generation.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="gen_stm32.core.service.engine.Service">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gen_stm32.core.service.engine.</span></span><span class="sig-name descname"><span class="pre">Service</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subprocessor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="gen_stm32.core.service.isubprocessor.html#gen_stm32.core.service.isubprocessor.ISubProcessor" title="gen_stm32.core.service.isubprocessor.ISubProcessor"><span class="pre">ISubProcessor</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gen_stm32/core/service/engine.html#Service"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gen_stm32.core.service.engine.Service" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Service for orchestrating the file generation process.</p>
+<p>It defines:</p>
+<blockquote>
+<div><dl class="field-list">
+<dt class="field-odd">attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="line-block">
+<div class="line">_subprocessor - Adapter for subprocessing.</div>
+</div>
+</dd>
+<dt class="field-even">methods<span class="colon">:</span></dt>
+<dd class="field-even"><div class="line-block">
+<div class="line">execute - Generates and writes user files.</div>
+<div class="line">is_initialized - Checks if the service is initialized.</div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="gen_stm32.core.service.engine.Service.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="gen_stm32.core.model.project_setup.html#gen_stm32.core.model.project_setup.ProjectSetup" title="gen_stm32.core.model.project_setup.ProjectSetup"><span class="pre">ProjectSetup</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/gen_stm32/core/service/engine.html#Service.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gen_stm32.core.service.engine.Service.execute" title="Link to this definition">¶</a></dt>
+<dd><p>Generates stm32 configuration files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>params</strong> – The ProjectSetup object.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The result of the execution (return code, stdout, stderr).</p>
+</dd>
+<dt class="field-odd">Exceptions<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gen_stm32.core.service.engine.Service.is_initialized">
+<span class="sig-name descname"><span class="pre">is_initialized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/gen_stm32/core/service/engine.html#Service.is_initialized"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gen_stm32.core.service.engine.Service.is_initialized" title="Link to this definition">¶</a></dt>
+<dd><p>Checks if the service is initialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the service is initialized, False otherwise.</p>
+</dd>
+<dt class="field-even">Exceptions<span class="colon">:</span></dt>
+<dd class="field-even"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gen_stm32.core.service.engine.Service.subprocessor">
+<span class="sig-name descname"><span class="pre">subprocessor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="gen_stm32.core.service.isubprocessor.html#gen_stm32.core.service.isubprocessor.ISubProcessor" title="gen_stm32.core.service.isubprocessor.ISubProcessor"><span class="pre">ISubProcessor</span></a></em><a class="headerlink" href="#gen_stm32.core.service.engine.Service.subprocessor" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">gen_stm32.core.service.engine module</a><ul>
+<li><a class="reference internal" href="#gen_stm32.core.service.engine.Service"><code class="docutils literal notranslate"><span class="pre">Service</span></code></a><ul>
+<li><a class="reference internal" href="#gen_stm32.core.service.engine.Service.execute"><code class="docutils literal notranslate"><span class="pre">Service.execute()</span></code></a></li>
+<li><a class="reference internal" href="#gen_stm32.core.service.engine.Service.is_initialized"><code class="docutils literal notranslate"><span class="pre">Service.is_initialized()</span></code></a></li>
+<li><a class="reference internal" href="#gen_stm32.core.service.engine.Service.subprocessor"><code class="docutils literal notranslate"><span class="pre">Service.subprocessor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="gen_stm32.core.service.html"
+                          title="previous chapter">gen_stm32.core.service package</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="gen_stm32.core.service.iservice.html"
+                          title="next chapter">gen_stm32.core.service.iservice module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/gen_stm32.core.service.engine.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="gen_stm32.core.service.iservice.html" title="gen_stm32.core.service.iservice module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="gen_stm32.core.service.html" title="gen_stm32.core.service package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">gen_stm32 https://github.com/vroncevic/gen_stm32/releases documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >gen_stm32</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="gen_stm32.html" >gen_stm32 package</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="gen_stm32.core.html" >gen_stm32.core package</a> &#187;</li>
+          <li class="nav-item nav-item-4"><a href="gen_stm32.core.service.html" >gen_stm32.core.service package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">gen_stm32.core.service.engine module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2026, Vladimir Roncevic &lt;elektron.ronca@gmail.com&gt;.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+  </body>
+</html>

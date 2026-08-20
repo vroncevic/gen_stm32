@@ -18,41 +18,40 @@ Copyright
 Info
     Defines properties for sphinx-doc.
 '''
+from __future__ import annotations
 
-import os
-import sys
+from os.path import abspath
+from sys import path
 
-from typing import Any, List, Dict, Tuple
-
-sys.path.insert(0, os.path.abspath('../../'))
+path.insert(0, abspath('../../'))
 
 project: str = 'gen_stm32'
 project_copyright: str = '2026, Vladimir Roncevic <elektron.ronca@gmail.com>'
 author: str = 'Vladimir Roncevic <elektron.ronca@gmail.com>'
-version: str = '1.2.5'
+version: str = '1.2.6'
 release: str = 'https://github.com/vroncevic/gen_stm32/releases'
-extensions: List[str] = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode']
-templates_path: List[str] = ['_templates']
+extensions: list[str] = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode']
+templates_path: list[str] = ['_templates']
 source_suffix: str = '.rst'
 master_doc: str = 'index'
 language: str = 'en'
-exclude_patterns: List[str] = []
+exclude_patterns: list[str] = []
 pygments_style: str = 'sphinx'
 html_theme: str = 'classic'
-html_static_path: List[str] = ['_static']
+html_static_path: list[str] = ['_static']
 htmlhelp_basename: str = 'gen_stm32doc'
-latex_elements: Dict[Any, Any] = {}
-latex_documents: List[Tuple[Any, ...]] = [(
+latex_elements: dict[object, object] = {}
+latex_documents: list[tuple[object, ...]] = [(
     master_doc, 'gen_stm32.tex', 'gen_stm32 Documentation',
     'Vladimir Roncevic \\textless{}elektron.ronca@gmail.com\\textgreater{}',
     'manual'
 )]
-man_pages: List[Tuple[Any, ...]] = [(
+man_pages: list[tuple[object, ...]] = [(
     master_doc, 'gen_stm32', 'gen_stm32 Documentation', [author], 1
 )]
-texinfo_documents: List[Tuple[Any, ...]] = [(
+texinfo_documents: list[tuple[object, ...]] = [(
     master_doc, 'gen_stm32', 'gen_stm32 Documentation', author, 'gen_stm32',
     'One line description of project.', 'Miscellaneous'
 )]
 epub_title: str = project
-epub_exclude_files: List[str] = ['search.html']
+epub_exclude_files: list[str] = ['search.html']
