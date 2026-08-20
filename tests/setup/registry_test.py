@@ -72,4 +72,4 @@ class TestGenSTM32BundleRegistry(unittest.TestCase):
             GenSTM32BundleRegistry.create_bundle(None)
 
     def test_get_version(self) -> None:
-        self.assertEqual(GenSTM32BundleRegistry.get_version(), '1.0.5')
+        self.assertEqual(GenSTM32BundleRegistry.get_version(), '1.2.6')

@@ -28,7 +28,7 @@ path.insert(0, abspath('../../'))
 project: str = 'gen_stm32'
 project_copyright: str = '2026, Vladimir Roncevic <elektron.ronca@gmail.com>'
 author: str = 'Vladimir Roncevic <elektron.ronca@gmail.com>'
-version: str = '1.2.5'
+version: str = '1.2.6'
 release: str = 'https://github.com/vroncevic/gen_stm32/releases'
 extensions: list[str] = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode']
 templates_path: list[str] = ['_templates']
