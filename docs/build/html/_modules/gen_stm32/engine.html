@@ -164,9 +164,11 @@
                 <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;returncode&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">write_log</span><span class="p">(</span><span class="n">ERROR</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;❌ gen_stm32: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;stderr&quot;</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s2">&quot;failed!&quot;</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
                     <span class="k">return</span> <span class="kc">False</span>
+
                 <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">write_log</span><span class="p">(</span><span class="n">INFO</span><span class="p">,</span> <span class="s1">&#39;✅ gen_stm32: done!&#39;</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">write_log</span><span class="p">(</span><span class="n">INFO</span><span class="p">,</span> <span class="s1">&#39;✅ gen_stm32: exiting successfully!&#39;</span><span class="p">)</span>
                 <span class="k">return</span> <span class="kc">True</span>
+
             <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">write_log</span><span class="p">(</span><span class="n">ERROR</span><span class="p">,</span> <span class="s1">&#39;❌ gen_stm32: engine not initialized!&#39;</span><span class="p">)</span>
             <span class="k">return</span> <span class="kc">False</span>
 

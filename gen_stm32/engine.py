@@ -122,9 +122,11 @@ class GenSTM32(Base):
                 if result.get("returncode") != 0:
                     self._logger.write_log(ERROR, f'❌ gen_stm32: {result.get("stderr") or "failed!"}')
                     return False
+
                 self._logger.write_log(INFO, '✅ gen_stm32: done!')
                 self._logger.write_log(INFO, '✅ gen_stm32: exiting successfully!')
                 return True
+
             self._logger.write_log(ERROR, '❌ gen_stm32: engine not initialized!')
             return False
 
