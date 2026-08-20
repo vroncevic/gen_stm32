@@ -1,3 +1,6 @@
 [submodule "gates"]
 	path = gates
 	url = git@github.com:vroncevic/quality-gates-py.git
+[submodule "coverage"]
+	path = coverage
+	url = git@github.com:vroncevic/ats_coverage.git

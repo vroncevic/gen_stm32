@@ -45,6 +45,7 @@ class CLIBundleRegistry:
 
             :methods:
                 | create_bundle - Creates a CLI bundle.
+                | get_version - Returns the registry version.
     '''
 
     @classmethod
@@ -73,3 +74,14 @@ class CLIBundleRegistry:
         CLIBundleValidator.validate(bundle)
 
         return bundle
+
+    @classmethod
+    def get_version(cls) -> str:
+        '''
+            Returns the registry version.
+
+            :return: The registry version.
+            :exceptions: None.
+        '''
+        return __version__
+

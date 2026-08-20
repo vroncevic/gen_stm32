@@ -33,6 +33,7 @@ __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
 
 
+# pylint: disable=too-few-public-methods
 @runtime_checkable
 class ICommandExecutor[ParametersType, ReturnType, ServiceType](Protocol):
     '''
@@ -52,4 +53,3 @@ class ICommandExecutor[ParametersType, ReturnType, ServiceType](Protocol):
             :param service: The service instance.
             :return: The execution result.
         '''
-        ...

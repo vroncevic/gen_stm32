@@ -24,6 +24,7 @@ from __future__ import annotations
 from collections.abc import Sequence
 
 from ats_utilities.option.imanager import IOptionManager
+from ats_utilities.exceptions import ATSValueError, ATSTypeError
 from ats_utilities.validation.check_value import not_none
 from ats_utilities.validation.check_type import istype
 
@@ -48,6 +49,7 @@ class CLIBundleValidator:
 
             :methods:
                 | validate - Validates the CLI bundle.
+                | is_valid - Checks if the CLI bundle is valid.
     '''
 
     @classmethod
@@ -81,3 +83,19 @@ class CLIBundleValidator:
         istype(bundle.service, IService, ctx, msg_service_istype)
         istype(bundle.parser, IOptionManager, ctx, msg_parser_istype)
         istype(bundle.commands, Sequence, ctx, msg_commands_istype)
+
+    @classmethod
+    def is_valid(cls, clibundle: CLIBundle) -> bool:
+        '''
+            Checks if the clibundle is valid.
+
+            :param clibundle: The clibundle to be checked.
+            :return: True if valid, False otherwise.
+        '''
+        try:
+            cls.validate(clibundle)
+            return True
+
+        except (ATSValueError, ATSTypeError):
+            return False
+

@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
 '''
@@ -19,6 +18,7 @@ Copyright
 Info
     Defines setup for tool gen_stm32.
 '''
+from __future__ import annotations
 
 from os import walk
 from os.path import abspath, dirname, join, relpath

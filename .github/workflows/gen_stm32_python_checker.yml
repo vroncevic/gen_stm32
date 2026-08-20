@@ -1,33 +1,28 @@
 name: gen_stm32_python_checker
+
 on:
   push:
-    branches: [ master ]
+    branches: [ master, main ]
     paths:
-      - 'gen_stm32/**'
-      - 'tests/**'
+      - 'gen_stm32/**/*.py'
       - 'setup.py'
   pull_request:
-    branches: [ master ]
+    branches: [ master, main ]
     paths:
-      - 'gen_stm32/**'
-      - 'tests/**'
+      - 'gen_stm32/**/*.py'
       - 'setup.py'
+
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check max length of lines in modules
-        id: long_line_checker
+        with:
+          submodules: true
+
+      - name: Check module length and line limits
         run: |
-          modules_ok=0
-          modules=($(find gen_stm32/ tests/ -type f -name '*.py' -exec echo '{}' \;))
-          for mod in "${modules[@]}"; do line_length=$(wc -L < "${mod}"); [[ $line_length -gt 127 ]] && modules_ok=1; done
-          [[ $modules_ok -eq 0 ]] && echo ok || exit 1
-      - name: Check max number of lines in modules
-        id: num_line_checker
-        run: |
-          modules_ok=0
-          modules=($(find gen_stm32/ tests/ -type f -name '*.py' -exec echo '{}' \;))
-          for mod in "${modules[@]}"; do line_numbers=$(wc -l < "${mod}"); [[ $line_numbers -gt 300 ]] && modules_ok=1; done
-          [[ $modules_ok -eq 0 ]] && echo ok || exit 1
+          python3 gates/gates/limits_checker.py gen_stm32

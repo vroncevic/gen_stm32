@@ -50,6 +50,7 @@ class GenSTM32BundleRegistry:
 
             :methods:
                 | create_bundle - Creates the gen_stm32 bundle.
+                | get_version - Returns the registry version.
     '''
 
     @classmethod
@@ -79,3 +80,13 @@ class GenSTM32BundleRegistry:
         GenSTM32BundleValidator.validate(bundle)
 
         return bundle
+
+    @classmethod
+    def get_version(cls) -> str:
+        '''
+            Returns the registry version.
+
+            :return: The registry version.
+            :exceptions: None.
+        '''
+        return __version__

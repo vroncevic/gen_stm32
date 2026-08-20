@@ -52,7 +52,6 @@ class ICLI(Protocol):
             :return: The execution result.
             :exceptions: None.
         '''
-        ...
 
     def is_initialized(self) -> bool:
         '''
@@ -61,4 +60,3 @@ class ICLI(Protocol):
             :return: True if initialized, False otherwise.
             :exceptions: None.
         '''
-        ...

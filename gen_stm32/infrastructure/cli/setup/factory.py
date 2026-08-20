@@ -54,6 +54,7 @@ class CLIBundleFactory:
 
             :methods:
                 | create_bundle - Creates the CLI bundle with optional pre-configured options.
+                | get_version - Returns the factory version.
     '''
 
     @classmethod
@@ -86,3 +87,14 @@ class CLIBundleFactory:
         return CLIBundleRegistry.create_bundle(
             dependencies=CLIBundleDependencies(service=service, parser=parser, commands=[service_cmd])
         )
+
+    @classmethod
+    def get_version(cls) -> str:
+        '''
+            Returns the factory version.
+
+            :return: The factory version.
+            :exceptions: None.
+        '''
+        return __version__
+

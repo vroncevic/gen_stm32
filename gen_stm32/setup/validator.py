@@ -22,6 +22,7 @@ Info
 from __future__ import annotations
 
 from ats_utilities.base.setup.bundle import BaseBundle
+from ats_utilities.exceptions import ATSValueError, ATSTypeError
 from ats_utilities.validation.check_value import not_none
 from ats_utilities.validation.check_type import istype
 
@@ -48,6 +49,7 @@ class GenSTM32BundleValidator:
 
             :methods:
                 | validate - Validates the gen_stm32 bundle.
+                | is_valid - Checks if the gen_stm32 bundle is valid.
     '''
 
     @classmethod
@@ -85,3 +87,18 @@ class GenSTM32BundleValidator:
         istype(bundle.service, IService, ctx, msg_service_istype)
         istype(bundle.subprocessor, ISubProcessor, ctx, msg_subprocessor_istype)
         istype(bundle.cli, ICLI, ctx, msg_cli_istype)
+
+    @classmethod
+    def is_valid(cls, genstm32bundle: GenSTM32Bundle) -> bool:
+        '''
+            Checks if the genstm32bundle is valid.
+
+            :param genstm32bundle: The genstm32bundle to be checked.
+            :return: True if valid, False otherwise.
+        '''
+        try:
+            cls.validate(genstm32bundle)
+            return True
+
+        except (ATSValueError, ATSTypeError):
+            return False

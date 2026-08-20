@@ -24,6 +24,7 @@ from __future__ import annotations
 from collections.abc import Mapping
 
 from ats_utilities.validation.check_type import istype
+from ats_utilities.exceptions import ATSValueError, ATSTypeError
 from ats_utilities.validation.check_value import not_none
 
 from gen_stm32.setup.options import GenSTM32BundleOptions
@@ -47,6 +48,7 @@ class GenSTM32BundleOptionsValidator:
 
             :methods:
                 | validate - Validates the gen_stm32 bundle options.
+                | is_valid - Checks if the gen_stm32 bundle options is valid.
     '''
 
     @classmethod
@@ -73,3 +75,18 @@ class GenSTM32BundleOptionsValidator:
             attribute = options.get(attr_name)
 
             istype(attribute, expected_type, ctx, msg_attr_name_istype)
+
+    @classmethod
+    def is_valid(cls, genstm32bundleoptions: GenSTM32BundleOptions) -> bool:
+        '''
+            Checks if the genstm32bundleoptions is valid.
+
+            :param genstm32bundleoptions: The genstm32bundleoptions to be checked.
+            :return: True if valid, False otherwise.
+        '''
+        try:
+            cls.validate(genstm32bundleoptions)
+            return True
+
+        except (ATSValueError, ATSTypeError):
+            return False

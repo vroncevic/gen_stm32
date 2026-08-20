@@ -1,13 +1,13 @@
 name: gen_stm32_package_checker
 on:
   push:
-    branches: [ master ]
+    branches: [ master, main ]
     paths:
       - 'gen_stm32/**'
       - 'tests/**'
       - 'setup.py'
   pull_request:
-    branches: [ master ]
+    branches: [ master, main ]
     paths:
       - 'gen_stm32/**'
       - 'tests/**'
@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ['3.10', '3.11', '3.12']
+        python-version: ['3.12', '3.13', '3.14']
     steps:
     - uses: actions/checkout@v4
     - name: set up python ${{ matrix.python-version }}

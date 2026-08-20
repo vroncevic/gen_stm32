@@ -54,7 +54,6 @@ class IService[ServiceParamsType, ExecuteResultType](Protocol):
             :param params: The parameters for the service execution.
             :return: The result of the execution.
         '''
-        pass
 
     def is_initialized(self) -> bool:
         '''
@@ -62,4 +61,3 @@ class IService[ServiceParamsType, ExecuteResultType](Protocol):
 
             :return: True if the service is initialized, False otherwise.
         '''
-        pass

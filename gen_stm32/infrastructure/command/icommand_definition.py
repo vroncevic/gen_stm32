@@ -39,4 +39,3 @@ __status__ = 'Updated'
 @runtime_checkable
 class ICommandDefinition(IOptionCommand[IOption], Protocol):
     '''Abstract ICommandDefinition strategy interface.'''
-    ...

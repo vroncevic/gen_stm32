@@ -54,7 +54,6 @@ class ISubProcessor[SubProcessorParamsType, SubProcessorResultType](Protocol):
             :param params: The parameters for the sub-process execution.
             :return: The result of the execution.
         '''
-        pass
 
     def is_initialized(self) -> bool:
         '''
@@ -62,4 +61,3 @@ class ISubProcessor[SubProcessorParamsType, SubProcessorResultType](Protocol):
 
             :return: True if the subprocessor is initialized, False otherwise.
         '''
-        pass
